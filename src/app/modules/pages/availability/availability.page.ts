@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HeaderService} from "../../ui/header/header.service";
 
 @Component({
   selector: 'app-availability',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AvailabilityPage implements OnInit {
 
-  constructor() { }
+  constructor(private headerService: HeaderService) {
+    this.headerService.setTitle('Disponibilidad');
+  }
 
   ngOnInit(): void {
   }

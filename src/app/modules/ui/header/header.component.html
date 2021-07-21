@@ -1,0 +1,12 @@
+<div
+  class="bg sticky-top"
+  [class.sticky-top]="height !== 300"
+  [style.height.px]=height>
+
+  <app-toolbar></app-toolbar>
+
+  <div class="container">
+    <h1 *ngIf="headerService.getHeight().getValue() === 300 ">{{title}}</h1>
+  </div>
+
+</div>

@@ -1,0 +1,38 @@
+$small: 768px;
+$medium: 992px;
+
+.bg {
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  background: #303F9FFF;
+}
+
+h1{
+  color: white;
+  font-size: 3.5em;
+  font-weight: 500;
+
+  @media screen and (max-width: $small) {
+    font-size: 2em;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    font-size: 2.5em;
+  }
+}
+
+.container{
+  margin-top: 40px;
+  margin-left: 20vw;
+
+  @media screen and (max-width: $small) {
+    margin-top: 15px;
+    margin-left: 10vw;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    margin-top: 30px;
+    margin-left: 15vw;
+  }
+}

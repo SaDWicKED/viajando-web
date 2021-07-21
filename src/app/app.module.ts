@@ -17,12 +17,18 @@ import { ResetPasswordModule } from './modules/pages/reset-password/reset-passwo
 import { TravelHistoryModule } from './modules/pages/travel-history/travel-history.module';
 import { TravelersModule } from './modules/pages/travelers/travelers.module';
 import { UserProfileModule } from './modules/pages/user-profile/user-profile.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ErrorInterceptor} from "./modules/core/interceptors/error.interceptor";
+import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { httpInterceptorProviders } from "./modules/core/interceptors";
+import { ToolbarComponent } from './modules/ui/header/toolbar/toolbar.component';
+import {MaterialModule} from "./modules/material/material.module";
+import { HeaderComponent } from './modules/ui/header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ToolbarComponent,
+    HeaderComponent
   ],
   imports: [
     HttpClientModule,
@@ -41,14 +47,12 @@ import {ErrorInterceptor} from "./modules/core/interceptors/error.interceptor";
     ResetPasswordModule,
     TravelHistoryModule,
     TravelersModule,
-    UserProfileModule
+    UserProfileModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    }
+    httpInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })
