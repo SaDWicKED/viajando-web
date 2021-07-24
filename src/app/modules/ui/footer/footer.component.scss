@@ -1,0 +1,136 @@
+$small: 768px;
+$medium: 992px;
+
+.timer {
+  background-color: #474747;
+  color: white;
+  padding: 0 20px 0 20px;
+  font-size: 25px;
+
+  @media screen and (max-width: $small) {
+    font-size: 20px;
+  }
+}
+
+.container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  .timer-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    margin-right: 2%;
+    margin-bottom: 1%;
+  }
+
+  .footer-container {
+    height: 12vh;
+    background: #171f50;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    @media screen and (max-width: $small) {
+      display: none;
+    }
+
+    .adv{
+      display: flex;
+      flex-direction: row;
+
+      .to-hide {
+        display: flex;
+        flex-direction: row;
+
+        @media screen and (max-width: $medium) {
+          display: none;
+        }
+
+        .movil {
+          width: 80px;
+          height: 159px;
+          align-self: flex-end;
+          object-fit: none;
+          object-position: -330px -10px;
+        }
+
+        .text {
+          align-self: center;
+          margin-top: 10px;
+          margin-left: 10px;
+
+          span {
+            color: #9bceff;
+            font-size: 20px;
+
+            @media screen and (max-height: $small) {
+              font-size: 14px;
+            }
+          }
+
+          p {
+            color: white;
+            font-size: 13px;
+            max-width: 380px;
+
+            @media screen and (max-height: $small) {
+              font-size: 11px;
+              max-width: 300px;
+            }
+          }
+        }
+      }
+
+      a {
+        align-self: center;
+        .apklis {
+          width: 150px;
+          height: 48px;
+          margin-top: 10px;
+          margin-left: 15px;
+          object-fit: none;
+          object-position: -10px -329px;
+        }
+      }
+    }
+
+
+    .social-networks {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      align-self: center;
+
+      .link-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+.bg-facebook {
+  width: 24px;
+  height: 24px;
+  object-fit: none;
+  object-position: -330px -276px;
+}
+
+.bg-twitter {
+  width: 24px;
+  height: 24px;
+  object-fit: none;
+  object-position: -374px -276px;
+}
+
+.bg-telegram {
+  width: 24px;
+  height: 24px;
+  object-fit: none;
+  object-position: -180px -329px;
+}

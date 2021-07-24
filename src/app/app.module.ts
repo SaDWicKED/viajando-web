@@ -23,12 +23,14 @@ import { httpInterceptorProviders } from "./modules/core/interceptors";
 import { ToolbarComponent } from './modules/ui/header/toolbar/toolbar.component';
 import {MaterialModule} from "./modules/material/material.module";
 import { HeaderComponent } from './modules/ui/header/header.component';
+import { FooterComponent } from './modules/ui/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     HttpClientModule,

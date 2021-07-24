@@ -1,0 +1,68 @@
+<div class="container">
+
+<!--  <div class="timer-info">-->
+<!--    <span class="timer"-->
+<!--          *ngIf="isTimerOn"-->
+<!--          matTooltip="Tiempo disponible para completar la reserva"-->
+<!--          aria-label="Muestra el tiempo disponible para completar la reserva"-->
+<!--    >-->
+<!--      {{timeLeft}}-->
+<!--    </span>-->
+
+<!--  </div>-->
+
+
+  <div *ngIf="isVisible" class="footer-container">
+
+    <div class="adv">
+      <div class="to-hide">
+        <img class="movil" src="../../../../assets/img/css_sprites.png" alt="phone"/>
+
+        <div class="text">
+          <span>Descarga nuestra nueva aplicación</span>
+          <p>
+            Ahora puedes reservar tus pasajes desde cualquier parte,
+            Al alcance de tu mano. Descárgate la aplicación Viajando.
+          </p>
+
+        </div>
+      </div>
+
+      <a href="https://www.apklis.cu/application/cu.sitrans.viajando"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        <img class="apklis" src="../../../../assets/img/css_sprites.png" alt="apklis"/>
+      </a>
+
+    </div>
+
+    <div class="social-networks">
+      <div class="link-icons">
+        <div>
+          <a href='https://www.facebook.com/groups/apkviajando'>
+            <img class="bg-facebook" src="../../../../assets/img/css_sprites.png" alt="facebook">
+          </a>
+        </div>
+        <div>
+          <a href="https://twitter.com/ApkViajando">
+            <img class="bg-twitter" src="../../../../assets/img/css_sprites.png" alt="twitter">
+          </a>
+        </div>
+        <div>
+          <a href="https://telegram.me/apkviajando">
+            <img class="bg-telegram" src="../../../../assets/img/css_sprites.png" alt="telegram">
+          </a>
+        </div>
+        <div>
+          <a href="mailto:viajero@viajero.transnet.cu" style="color: white;">
+            <mat-icon>mail</mat-icon>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
