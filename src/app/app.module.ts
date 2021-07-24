@@ -24,13 +24,15 @@ import { ToolbarComponent } from './modules/ui/header/toolbar/toolbar.component'
 import {MaterialModule} from "./modules/material/material.module";
 import { HeaderComponent } from './modules/ui/header/header.component';
 import { FooterComponent } from './modules/ui/footer/footer.component';
+import { SidenavComponent } from './modules/ui/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidenavComponent
   ],
   imports: [
     HttpClientModule,

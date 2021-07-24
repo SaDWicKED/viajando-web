@@ -1,0 +1,22 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav mode="over" [(opened)]=opened>
+    <mat-toolbar>
+      <span>
+        <a routerLink="availability">
+          <img class="logo" src="../../../../assets/img/css_sprites.png" id="logo" alt="logo">
+        </a>
+      </span>
+    </mat-toolbar>
+
+    <div class="menu-items">
+      <a mat-button routerLink='availability'><span>Disponibilidad</span></a>
+      <a mat-button routerLink='agencies'><span>Agencias</span></a>
+      <a mat-button routerLink='faqs'><span>FAQs</span></a>
+      <a mat-button routerLink='about'><span>Contactos</span></a>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

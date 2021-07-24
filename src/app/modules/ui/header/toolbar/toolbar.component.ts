@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../shared/services/auth.service";
+import {SidenavService} from "../../../shared/services/sidenav.service";
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +9,14 @@ import {AuthService} from "../../../shared/services/auth.service";
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor(public authService: AuthService,) { }
+  constructor(public authService: AuthService,
+              private sidenavService: SidenavService) { }
 
   ngOnInit(): void {
   }
 
+  toggleSidenav() {
+    this.sidenavService.toggleSidenav();
+
+  }
 }
