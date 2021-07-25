@@ -1,3 +1,4 @@
+$xsmall: 575px;
 $small: 768px;
 $medium: 992px;
 
@@ -23,16 +24,17 @@ h1{
 }
 
 .container{
-  margin-top: 40px;
-  margin-left: 20vw;
+  margin: 50px 0 0 20vw;
 
-  @media screen and (max-width: $small) {
-    margin-top: 15px;
-    margin-left: 10vw;
+  @media screen and (max-width: $xsmall) {
+    margin: 15px 0 0 10vw;
+  }
+
+  @media screen and (min-width: $xsmall) and (max-width: $small) {
+    margin: 30px 0 0 10vw;
   }
 
   @media screen and (min-width: $small) and (max-width: $medium) {
-    margin-top: 30px;
-    margin-left: 15vw;
+    margin: 50px 0 0 15vw;
   }
 }
