@@ -25,6 +25,7 @@ import {MaterialModule} from "./modules/material/material.module";
 import { HeaderComponent } from './modules/ui/header/header.component';
 import { FooterComponent } from './modules/ui/footer/footer.component';
 import { SidenavComponent } from './modules/ui/sidenav/sidenav.component';
+import { LoaderComponent } from './modules/ui/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SidenavComponent } from './modules/ui/sidenav/sidenav.component';
     ToolbarComponent,
     HeaderComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    LoaderComponent
   ],
   imports: [
     HttpClientModule,
