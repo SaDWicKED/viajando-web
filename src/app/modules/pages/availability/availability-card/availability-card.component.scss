@@ -1,0 +1,101 @@
+$xsmall: 575px;
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+$xlarge: 1500px;
+
+
+mat-card {
+  margin: 0 auto 0 auto;
+  width: 100%;
+
+  @media screen and (max-width: $xlarge) {
+    width: 80%;
+  }
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container {
+  display: flex;;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  margin-top: 20px;
+
+  @media screen and (max-width: $xlarge) {
+    margin-top: 0;
+  }
+
+  .origin-field {
+    @media screen and (max-width: $xsmall) {
+      width: 80%;
+    }
+
+    @media screen and (min-width: $xsmall) and (max-width: $small) {
+      width: 88%;
+    }
+
+    @media screen and (min-width: $small) and (max-width: $large) {
+      width: 45%;
+    }
+
+    @media screen and (min-width: $large) and (max-width: $xlarge) {
+      width: 22%;
+    }
+  }
+
+  .destination-field{
+    @media screen and (max-width: $small) {
+      width: 100%;
+    }
+    @media screen and (min-width: $small) and (max-width: $large) {
+      width: 45%;
+    }
+    @media screen and (min-width: $large) and (max-width: $xlarge) {
+      width: 22%;
+    }
+  }
+
+  .date-field{
+    @media screen and (max-width: $small) {
+      width: 100%;
+    }
+    @media screen and (min-width: $small) and (max-width: $large) {
+      width: 49%;
+    }
+    @media screen and (min-width: $large) and (max-width: $xlarge) {
+      width: 23%;
+    }
+  }
+
+  .int-btn{
+    font-size: 15px;
+    margin-top: -15px;
+    background: none;
+    border: none;
+    outline: none;
+
+    :hover {
+      color: #fd9701;
+    }
+  }
+
+  .submit-btn {
+    background-color: #fd9701;
+    min-width: 200px;
+    margin-top: -18px;
+    width: auto;
+    height: 50px;
+
+    @media screen and (max-width: $xlarge) {
+      width: 100%;
+    }
+  }
+}

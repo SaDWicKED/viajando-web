@@ -23,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSortModule} from '@angular/material/sort';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 const modules = [
   MatButtonModule,
@@ -30,6 +31,7 @@ const modules = [
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
+  MatTooltipModule,
   MatSidenavModule,
   MatListModule,
   MatDialogModule,

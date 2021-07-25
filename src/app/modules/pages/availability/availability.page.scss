@@ -1,0 +1,66 @@
+$xsmall: 575px;
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+.availability-card{
+  position: relative;
+  top: -80px;
+
+  @media screen and (max-width: $xsmall) {
+    top: -180px;
+  }
+
+  @media screen and (min-width: $xsmall) and (max-width: $small) {
+    top: -130px;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    top: -100px;
+  }
+
+}
+
+.availability-banner {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: -50px;
+
+  @media screen and (max-width: $medium) {
+    display: none;
+  }
+}
+
+.availability-banner-item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+
+.availability-banner-item-icon {
+  mat-icon{
+    position: relative;
+    font-size: 2.3em;
+    color: rgba(33, 68, 110, 0.83);
+  }
+}
+
+.availability-banner-item-title {
+  font-size: 16px;;
+  font-weight: 400;
+}
+
+.availability-banner-item-text {
+  font-weight: 300;
+  font-size: 13px;
+  max-width: 250px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

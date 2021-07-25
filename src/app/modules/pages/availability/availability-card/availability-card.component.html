@@ -1,0 +1,99 @@
+<mat-card class="mat-elevation-z12">
+  <mat-card-content>
+    <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+      <div class="container">
+        <mat-form-field class="origin-field" appearance="outline">
+          <mat-label>Origen</mat-label>
+          <input
+            matInput
+            placeholder="Escoja un origen"
+            aria-label="Origen"
+            [matAutocomplete]="originAutoComplete"
+            formControlName="originCtrl"
+          />
+          <mat-autocomplete
+            #originAutoComplete="matAutocomplete"
+          >
+            <mat-option
+              *ngFor="let location of filteredOrigins"
+              [value]="location.name"
+            >
+              <span>{{ location.name }}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <button class="int-btn"
+                mat-icon-button
+                type="button"
+                matTooltip="Intercambiar Origen y Destino"
+                aria-label="Intercambiar Origen y Destino"
+                [disabled]="!travelForm.get('originCtrl')?.valid || !travelForm.get('destinationCtrl')?.valid"
+                (click)="onInterchange()"
+        >
+          <mat-icon>compare_arrows</mat-icon>
+        </button>
+
+        <mat-form-field class="destination-field" appearance="outline" >
+          <mat-label>Destino</mat-label>
+          <input
+            matInput
+            placeholder="Escoja un destino"
+            aria-label="Destino"
+            [matAutocomplete]="destinationAutoComplete"
+            formControlName="destinationCtrl"
+          />
+          <mat-autocomplete #destinationAutoComplete="matAutocomplete">
+            <mat-option
+              *ngFor="let location of filteredDestinations"
+              [value]="location.name"
+            >
+              <span>{{ location.name }}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field  class="date-field" appearance="outline">
+          <mat-label>Salida</mat-label>
+          <input
+            matInput
+            readonly
+            [min]="minDate1"
+            [max]="maxDate"
+            [matDatepicker]="$any(picker1)"
+            (dateChange)="onDateChange($event)"
+            placeholder="Escoja una fecha"
+            formControlName="departureDateCtrl"
+          >
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 [touchUi]="true"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="date-field" appearance="outline">
+          <mat-label>Regreso (Opcional)</mat-label>
+          <input
+            matInput
+            readonly
+            [min]="minDate2"
+            [max]="maxDate"
+            [matDatepicker]="$any(picker2)"
+            placeholder="Escoja una fecha"
+            formControlName="comebackDateCtrl"
+          >
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2 [touchUi]="true"></mat-datepicker>
+        </mat-form-field>
+
+        <button
+          class="submit-btn"
+          type="submit"
+          mat-flat-button
+          [disabled]="!travelForm.valid"
+        >
+          Buscar
+        </button>
+      </div>
+    </form>
+
+  </mat-card-content>
+</mat-card>
