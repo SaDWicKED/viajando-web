@@ -19,17 +19,17 @@ export class HeaderService {
     return this.titleSubject;
   }
 
-  setTitle(title: string) {
+  setTitle(title: string): void {
     this.title = title;
     this.titleSubject.next(this.title);
   }
 
-  setHeight(height: number) {
+  setHeight(height: number): void {
     this.height = height;
     this.heightSubject.next(this.height);
   }
 
-  getHeight() {
+  getHeight(): BehaviorSubject<number> {
     return this.heightSubject;
   }
 }

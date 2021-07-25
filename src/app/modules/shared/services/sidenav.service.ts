@@ -13,7 +13,7 @@ export class SidenavService {
     this.opened = false
   }
 
-  public toggleSidenav() {
+  public toggleSidenav(): void {
     this.openedSubject.next(!this.opened);
   }
 
