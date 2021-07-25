@@ -4,8 +4,9 @@ import {AvailabilityResultPage} from "./availability-result.page";
 
 const routes: Routes = [
   {
-    path: '',
-    component: AvailabilityResultPage
+    path: '', children: [
+      { path: ':travelType/:origin/:destination/:departureDate/:comebackDate', component: AvailabilityResultPage},
+    ]
   },
 ];
 

@@ -111,6 +111,9 @@ export class AvailabilityCardComponent implements OnInit {
     const origin = this.travelForm.get('originCtrl')?.value;
     const destination = this.travelForm.get('destinationCtrl')?.value;
 
+    const originCode = this.getCodeByNameLocations(origin, this.origins);
+    const destinationCode = this.getCodeByNameLocations(destination, this.destinations);
+
     const departureDate = this.datePipe.transform(this.travelForm.get('departureDateCtrl')?.value, 'yyyy-MM-dd');
     let comebackDate = this.datePipe.transform(this.travelForm.get('comebackDateCtrl')?.value, 'yyyy-MM-dd');
 
@@ -127,8 +130,8 @@ export class AvailabilityCardComponent implements OnInit {
 
     this.router.navigateByUrl('/results/' +
       travelType + '/' +
-      origin + '/' +
-      destination + '/' +
+      originCode + '/' +
+      destinationCode + '/' +
       departureDate + '/' +
       comebackDate);
   }
