@@ -1,0 +1,73 @@
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 300px;
+  width: 100%;
+  margin: -100px 0 15vh 0;
+
+  @media screen and (max-width: $small) {
+    margin-top: -150px;
+    width: 80%;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    margin-top: -120px;
+  }
+
+  @media screen and (min-width: $medium) and (max-width: $large) {
+    margin-top: -110px;
+  }
+}
+
+.login-header {
+  position: relative;
+  top: 15px;
+  font-size: 2em;
+}
+
+.login-header-caption {
+  font-weight: 700;
+  font-size: 1em;
+  margin-left: -25px;
+}
+
+.pass-icon {
+  cursor: pointer;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.login-button {
+  width: 100%;
+}
+
+span:focus {
+  outline: none;
+  border: 0;
+}
+
+span:hover {
+  text-decoration: underline;
+}
+
+mat-form-field {
+  width: 100%;
+}

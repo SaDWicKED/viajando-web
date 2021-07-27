@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <h3 class="login-header-caption">
+        Inicia Sesión
+      </h3>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput formControlName=emailCtrl placeholder="email" value="" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input
+            [type]="passIconString === 'visibility' ? 'text' : 'password'"
+            matInput
+            formControlName=passwordCtrl
+            placeholder="contraseña"
+            value=""
+          />
+          <mat-icon class="pass-icon" color="primary" matSuffix (click)="togglePasswordVisibility()">{{passIconString}}</mat-icon>
+        </mat-form-field>
+        <button mat-flat-button class="login-button" color="primary" [disabled]="!loginForm.valid">Iniciar sesión</button>
+      </form>
+      <div class="links">
+        <span routerLink="/viajando/register" > ¿ No tengo una cuenta ?</span>
+        <span routerLink="/viajando/reset-password" >Olvidé mi contraseña</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

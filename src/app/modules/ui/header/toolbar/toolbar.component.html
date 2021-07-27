@@ -23,21 +23,21 @@
      mat-stroked-button
      [matMenuTriggerFor]="menu"
   >
-    Username
+    {{username}}
     <mat-icon>person</mat-icon>
   </a>
   <a class="user-button" *ngIf="!this.authService.isAuthenticated()"
-     routerLink="viajando/login"
+     routerLink="login"
      mat-stroked-button
   >
     Inicia sesión
   </a>
 
   <mat-menu #menu="matMenu">
-    <a mat-menu-item routerLink="/viajando/account/profile"><mat-icon>person</mat-icon>Perfil de Usuario</a>
-    <a mat-menu-item routerLink="/viajando/account/travelers"><mat-icon>people</mat-icon>Mis Viajeros</a>
-    <a mat-menu-item routerLink="/viajando/account/history"><mat-icon>directions_bus</mat-icon>Mis Reservas</a>
-    <a mat-menu-item (click)="authService.logout()"><mat-icon>payment</mat-icon>Factura pendiente</a>
+    <a mat-menu-item routerLink="profile"><mat-icon>person</mat-icon>Perfil de Usuario</a>
+    <a mat-menu-item routerLink="travelers"><mat-icon>people</mat-icon>Mis Viajeros</a>
+    <a mat-menu-item routerLink="history"><mat-icon>directions_bus</mat-icon>Mis Reservas</a>
+<!--    <a mat-menu-item (click)="authService.logout()"><mat-icon>payment</mat-icon>Factura pendiente</a>-->
     <a mat-menu-item (click)="authService.logout()"><mat-icon>logout</mat-icon>Salir</a>
   </mat-menu>
 </mat-toolbar>
