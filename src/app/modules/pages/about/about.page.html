@@ -1,1 +1,60 @@
-<p>about works!</p>
+<div class="container">
+  <header class="header">
+    <h1>Viajando</h1>
+    <span>Versión 0.9.25</span>
+    <img src="assets/img/css_sprites.png" alt="logo">
+    <span>Una app de <b>SITRANS</b> con información de <b>VIAJERO</b></span>
+  </header>
+  <section class="info">
+    <h3>ATENCIÓN A LA POBLACIÓN</h3>
+    <span><b>Tel: </b> 78775644 ext. 136 De 8.00am a 4.00pm</span>
+    <span><b>Email: </b> <a href="mailto:viajero@viajero.transnet.cu">viajero@viajero.transnet.cu</a></span>
+  </section>
+  <section class="privacy">
+    <button mat-button (click)="onPolicyClick()">Políticas de privacidad</button>
+  </section>
+
+  <section class="social-networks">
+    <a href="https://www.apklis.cu/application/cu.sitrans.viajando"
+       target="_blank"
+       rel="noopener noreferrer"
+    >
+      <img class="apklis" src="../../../../assets/img/css_sprites.png" alt="apklis"/>
+    </a>
+    <span>Siguenos en nuestras redes</span>
+
+    <div class="link-icons">
+      <div>
+        <a href='https://www.facebook.com/groups/apkviajando'
+           target="_blank"
+           rel="noopener noreferrer"
+        >
+          <img class="bg-facebook" src="../../../../assets/img/css_sprites.png" alt="facebook">
+        </a>
+      </div>
+      <div>
+        <a href="https://twitter.com/ApkViajando"
+           target="_blank"
+           rel="noopener noreferrer"
+        >
+          <img class="bg-twitter" src="../../../../assets/img/css_sprites.png" alt="twitter">
+        </a>
+      </div>
+      <div>
+        <a href="https://telegram.me/apkviajando"
+           target="_blank"
+           rel="noopener noreferrer"
+        >
+          <img class="bg-telegram" src="../../../../assets/img/css_sprites.png" alt="telegram">
+        </a>
+      </div>
+      <div>
+        <a href="mailto:viajero@viajero.transnet.cu" style="color: white;"><mat-icon>mail</mat-icon></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rights">
+    <span>Todos los derechos reservados <b>SITRANS</b> 2021</span>
+  </section>
+</div>

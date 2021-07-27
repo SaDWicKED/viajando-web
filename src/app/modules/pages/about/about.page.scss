@@ -1,0 +1,106 @@
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+@mixin flex{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  @include flex;
+  margin-bottom: 20vh;
+  margin-top: 20px;
+
+  @media screen and (max-width: $small) {
+    transform: scale(0.8);
+    margin-top: -60px;
+  }
+
+  .header {
+    @include flex;
+
+    img {
+      width: 300px;
+      height: 299px;
+      object-fit: none;
+      object-position: -10px -10px;
+    }
+  }
+
+  .info {
+    @include flex;
+    margin-top: 20px;
+    a{
+      color: #fd9701;
+    }
+  }
+  .privacy {
+    @include flex;
+    margin-top: 20px;
+    button {
+      font-size: 20px;
+      color: #fd9701;
+    }
+  }
+  .rights {
+    @include flex;
+    margin-top: 20px;
+  }
+
+  .social-networks {
+    display: none;
+    margin: 15px auto 0 auto;
+
+    @media screen and (max-width: $small) {
+      @include flex;
+    }
+
+    .apklis {
+      margin: 10px 0 25px 0;
+      width: 150px;
+      height: 48px;
+      object-fit: none;
+      object-position: -10px -329px;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .link-icons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      background-color: #3644a6;
+      width: 250px;
+      padding: 10px;
+      border-radius: 25px;
+      margin-top: 10px;
+
+      .bg-facebook {
+        width: 24px;
+        height: 24px;
+        object-fit: none;
+        object-position: -330px -276px;
+      }
+
+      .bg-twitter {
+        width: 24px;
+        height: 24px;
+        object-fit: none;
+        object-position: -374px -276px;
+      }
+
+      .bg-telegram {
+        width: 24px;
+        height: 24px;
+        object-fit: none;
+        object-position: -180px -329px;
+      }
+    }
+
+  }
+}
