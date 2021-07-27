@@ -26,6 +26,7 @@ import { HeaderComponent } from './modules/ui/header/header.component';
 import { FooterComponent } from './modules/ui/footer/footer.component';
 import { SidenavComponent } from './modules/ui/sidenav/sidenav.component';
 import { LoaderComponent } from './modules/ui/loader/loader.component';
+import {SnackInfoComponent} from "./modules/ui/snack-info/snack-info.component";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoaderComponent } from './modules/ui/loader/loader.component';
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
-    LoaderComponent
+    LoaderComponent,
+    SnackInfoComponent
   ],
   imports: [
     HttpClientModule,
@@ -58,7 +60,10 @@ import { LoaderComponent } from './modules/ui/loader/loader.component';
     MaterialModule
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+  ],
+  entryComponents: [
+    SnackInfoComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,6 @@
+<div class="error">
+
+  <div *ngIf="!data || !data.message else info;">Error de conexión </div>
+  <ng-template #info>{{data.message}}</ng-template>
+
+</div>
