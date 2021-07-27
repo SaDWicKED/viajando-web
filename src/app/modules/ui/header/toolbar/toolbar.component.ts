@@ -9,10 +9,17 @@ import {SidenavService} from "../../../shared/services/sidenav.service";
 })
 export class ToolbarComponent implements OnInit {
 
+  username: string | undefined;
+
   constructor(public authService: AuthService,
-              private sidenavService: SidenavService) { }
+              private sidenavService: SidenavService) {
+    this.username = '';
+  }
 
   ngOnInit(): void {
+    this.authService.currentUserSubject.subscribe(user => {
+      this.username = user.firstName;
+    })
   }
 
   toggleSidenav() {
