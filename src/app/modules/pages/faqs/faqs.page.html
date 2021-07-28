@@ -1,1 +1,24 @@
-<p>faqs works!</p>
+<div class="container">
+
+  <input class="search-bar "
+         type="text"
+         #search
+         (keyup)="onKey(search.value)"
+         placeholder="Buscar">
+
+  <mat-accordion >
+
+    <mat-expansion-panel *ngFor="let question of filteredFaqs">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="title">
+            <span><b>{{question.question}}</b></span>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{question.answer}}</p>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</div>

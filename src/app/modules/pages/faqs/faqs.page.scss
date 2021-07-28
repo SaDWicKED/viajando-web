@@ -1,0 +1,50 @@
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+
+  max-width: 600px;
+
+  margin: -100px auto 20vh auto;
+
+
+  @media screen and (max-width: $small) {
+    margin-top: -150px;
+    width: 80%;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    margin-top: -130px;
+  }
+
+  @media screen and (min-width: $medium) and (max-width: $large) {
+    margin-top: -120px;
+  }
+}
+
+mat-expansion-panel {
+  mat-expansion-panel-header {
+    height: auto!important;
+    margin: 10px;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.search-bar{
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(225, 232, 245);
+}
