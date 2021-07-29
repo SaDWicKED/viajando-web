@@ -27,7 +27,7 @@ export class FaqsPage implements OnInit {
     });
   }
 
-  onKey(filter: string) {
+  onKey(filter: string): void {
     this.filteredFaqs = this.questions.filter(q => q.question?.toLowerCase().includes(filter.toLowerCase()));
   }
 }

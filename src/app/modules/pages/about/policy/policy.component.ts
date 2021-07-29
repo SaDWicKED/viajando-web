@@ -1,18 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-policy',
   templateUrl: './policy.component.html',
   styleUrls: ['./policy.component.scss']
 })
-export class PolicyComponent implements OnInit {
+export class PolicyComponent {
 
-  constructor(
-    public dialogRef: MatDialogRef<PolicyComponent>,
-  ) { }
-
-  ngOnInit(): void {
-  }
+  constructor() { }
 
 }

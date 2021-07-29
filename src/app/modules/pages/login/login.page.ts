@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HeaderService} from "../../ui/header/header.service";
 import {AuthService} from "../../shared/services/auth.service";
@@ -10,12 +10,11 @@ import {RedirectionService} from "../../shared/services/redirection.service";
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss']
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
 
   @ViewChild('password-icon', {static: true}) passwordIcon: any;
   passIconString = 'visibility_off';
   loginForm: FormGroup;
-
 
   constructor(private headerService: HeaderService,
               private authService: AuthService,
@@ -26,9 +25,6 @@ export class LoginPage implements OnInit {
       emailCtrl: new FormControl(null, [Validators.email, Validators.required]),
       passwordCtrl: new FormControl(null, [Validators.required])
     });
-  }
-
-  ngOnInit(): void {
   }
 
   onSubmit(): void {

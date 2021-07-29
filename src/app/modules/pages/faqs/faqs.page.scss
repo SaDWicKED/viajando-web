@@ -5,12 +5,8 @@ $large: 1200px;
 .container {
   display: flex;
   flex-direction: column;
-
-
   max-width: 600px;
-
   margin: -100px auto 20vh auto;
-
 
   @media screen and (max-width: $small) {
     margin-top: -150px;

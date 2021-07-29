@@ -15,7 +15,7 @@ export class HeaderService {
     this.height = 300;
   }
 
-  getTitle() {
+  getTitle(): BehaviorSubject<string> {
     return this.titleSubject;
   }
 

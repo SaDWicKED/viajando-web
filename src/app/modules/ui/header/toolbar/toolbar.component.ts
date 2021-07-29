@@ -22,8 +22,7 @@ export class ToolbarComponent implements OnInit {
     })
   }
 
-  toggleSidenav() {
+  toggleSidenav(): void {
     this.sidenavService.toggleSidenav();
-
   }
 }

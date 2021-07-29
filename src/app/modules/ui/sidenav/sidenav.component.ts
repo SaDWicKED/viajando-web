@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {SidenavService} from "../../shared/services/sidenav.service";
 
 @Component({
@@ -6,7 +6,7 @@ import {SidenavService} from "../../shared/services/sidenav.service";
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
 
   opened: boolean;
   constructor( private sidenavService: SidenavService ) {
@@ -14,9 +14,6 @@ export class SidenavComponent implements OnInit {
     this.sidenavService.openedSubject.subscribe(opened => {
       this.opened = opened;
     });
-  }
-
-  ngOnInit(): void {
   }
 
 }
