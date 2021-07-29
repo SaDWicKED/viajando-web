@@ -1,1 +1,35 @@
-<p>activate-account works!</p>
+<div class="container">
+  <mat-card class="login-card" >
+    <mat-card-header>
+      <span class="login-header-caption">
+        Revise su correo para activar su cuenta.
+      </span>
+    </mat-card-header>
+    <mat-card-content>
+
+      <form [formGroup]="activateForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+          <mat-label>Código de activación</mat-label>
+          <input formControlName=activationCodeCtrl
+                 placeholder="Inserte su código aquí"
+                 matInput
+                 maxlength="36"
+          />
+          <mat-error *ngIf="activateForm.get('activationCodeCtrl')?.hasError('minlength')">
+            Debe insertar un codigo de activación válido
+          </mat-error>
+          <mat-error *ngIf="activateForm.get('activationCodeCtrl')?.hasError('required')">
+            Inserte su codigo de activación
+          </mat-error>
+        </mat-form-field>
+        <button [disabled]="!activateForm.valid"
+                mat-flat-button
+                color="primary"
+        >
+          Activar Cuenta
+        </button>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>
