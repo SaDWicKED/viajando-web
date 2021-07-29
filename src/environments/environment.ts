@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   mapbox: {
-    accessToken: 'pk.eyJ1IjoicmlrcjJzYW5jaGV6YWxiYSIsImEiOiJjazAzY2FmMmwwM3ZqM2xtYmRzajlsbnh0In0.qaA0qKr3au6h9Tpxo_mJwg'
+    accessToken: 'pk.eyJ1Ijoic2Fkd2lja2VkIiwiYSI6ImNrbHhlaG9tdDB5YzYyb3BidDdsejgwMnQifQ.Z-Rzk2PIjybJJ5azWAeUGQ'
   },
   disponibilidad : {
     // tslint:disable-next-line:max-line-length

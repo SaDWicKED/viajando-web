@@ -1,0 +1,70 @@
+$small: 768px;
+$medium: 992px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: -100px auto 20vh auto;
+
+  @media screen and (max-width: $small) {
+    margin-top: -160px;
+    width: 80%;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    margin-top: -120px;
+  }
+
+  h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+}
+
+mat-panel-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.agency {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+  border-radius: 15px;
+
+  .agency-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    mat-icon {
+      margin-left: 20px;
+      color: #fd9701;
+    }
+
+    span {
+      color: black;
+      margin-left: 10px;
+    }
+  }
+}
+
+.agency:hover{
+  background-color: #f8f8f8;
+  .agency-name{
+    span{
+      color: #fd9701;
+    }
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}

@@ -150,7 +150,7 @@ export class AvailabilityCardComponent implements OnInit {
 
   // Filtra las localidades dado un valor
   filterLocations(value: string, localities: Locality[]): Locality[]{
-    return localities.filter(locality => locality.name?.toLowerCase().includes(value.toLowerCase()))
+    return localities.filter(locality => locality.name?.toLowerCase().includes(value?.toLowerCase()))
   }
 
   // Obtiene el codigo de una localidad dado el nombre

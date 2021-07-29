@@ -1,0 +1,17 @@
+<div class="container">
+  <h3 class="agency-name">
+    {{data.name}}
+  </h3>
+
+  <div class="agency-info">
+    <span><b>Dirección: </b> {{data.address}}</span>
+    <span><b>Teléfono: </b> {{data.phone}}</span>
+  </div>
+
+  <div class="map-div"
+       *ngIf="(data.coordinates !== '')"
+       #map
+       style='width: 300px; height: 300px;'
+  ></div>
+
+</div>
