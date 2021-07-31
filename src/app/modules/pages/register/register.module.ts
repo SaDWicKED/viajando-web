@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterPage } from './register.page';
+import {MaterialModule} from "../../material/material.module";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatPasswordStrengthModule} from "@angular-material-extensions/password-strength";
 
 
 @NgModule({
@@ -11,7 +14,10 @@ import { RegisterPage } from './register.page';
   ],
   imports: [
     CommonModule,
-    RegisterRoutingModule
+    RegisterRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    MatPasswordStrengthModule
   ]
 })
 export class RegisterModule { }

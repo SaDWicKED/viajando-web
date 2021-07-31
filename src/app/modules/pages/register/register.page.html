@@ -1,1 +1,155 @@
-<p>register works!</p>
+<div class="container">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <h3 class="login-header-caption">
+        Regístrese
+      </h3>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-fields">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input matInput required maxlength="40" formControlName=firstnameCtrl />
+            <mat-error *ngIf="registerForm.get('firstnameCtrl')?.hasError('nameIsInvalid')">
+              Debe insertar un nombre válido
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Apellidos</mat-label>
+            <input matInput required maxlength="40" formControlName=lastnameCtrl placeholder=""/>
+            <mat-error *ngIf="registerForm.get('lastnameCtrl')?.hasError('nameIsInvalid')">
+              Debe insertar apellidos válidos
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Carnet de identidad</mat-label>
+            <input matInput required maxlength="11" formControlName=dniCtrl placeholder=""/>
+            <mat-error *ngIf="registerForm.get('dniCtrl')?.hasError('idIsInvalid')">
+              Debe insertar un número de carnet válido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput required email maxlength="60" formControlName=emailCtrl placeholder=""/>
+            <mat-error *ngIf="registerForm.get('emailCtrl')?.hasError('email')">
+              Debe insertar una dirección de correo válida
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('emailCtrl')?.hasError('required')">
+              Debe insertar una dirección de correo
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Teléfono Móvil</mat-label>
+            <input matInput required formControlName=mobilePhoneCtrl maxlength="10" placeholder=""/>
+            <mat-error *ngIf="registerForm.get('mobilePhoneCtrl')?.hasError('phoneIsInvalid')">
+              Debe insertar un número de teléfono válido
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Provincia</mat-label>
+            <mat-select required formControlName=provinceCtrl (selectionChange)="provinceSelectionChanged($event)">
+              <mat-option *ngFor="let province of this.provinces" value="{{province}}">{{province}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.get('provinceCtrl')?.hasError('required')">
+              Por favor seleccione su provincia
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field appearance="outline">
+            <mat-label>Municipio</mat-label>
+            <mat-select required formControlName=municipalityCtrl>
+              <mat-option *ngFor="let municipality of this.municipalities" value="{{municipality}}">{{municipality}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registerForm.get('municipalityCtrl')?.hasError('required')">
+              Por favor seleccione su municipio
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+        <div class="pswd-section">
+          <mat-slide-toggle #pass_info>Mostrar requisitos</mat-slide-toggle>
+
+          <!--password input filed-->
+          <mat-form-field class="pswd-field" appearance="outline" [color]="passwordComponentWithConfirmation.color">
+            <mat-label>Contraseña</mat-label>
+            <mat-pass-toggle-visibility #toggle matSuffix></mat-pass-toggle-visibility>
+            <input matInput #password_c
+                   [formControl]="passwordComponentWithConfirmation.passwordFormControl"
+                   [type]="toggle.type"
+                   required
+                   placeholder="Contraseña">
+            <mat-error *ngIf="passwordComponentWithConfirmation.passwordFormControl.hasError('required')">
+              Debe insertar una contraseña
+            </mat-error>
+            <mat-error *ngIf="passwordComponentWithConfirmation.passwordFormControl.hasError('pattern')">
+              Su contraseña no cumple los requisitos mínimos
+            </mat-error>
+          </mat-form-field>
+
+          <!--@angular-material-extensions/password-strength's main component-->
+          <mat-password-strength #passwordComponentWithConfirmation
+                                 [password]="password_c.value">
+          </mat-password-strength>
+
+          <!--Password's strength info-->
+          <mat-password-strength-info
+            *ngIf="pass_info.checked"
+            lowerCaseCriteriaMsg="Debe contener letras en minúscula"
+            upperCaseCriteriaMsg="Debe contener letras en mayúscula"
+            digitsCriteriaMsg="Debe contener dígitos"
+            specialCharsCriteriaMsg="Debe contener caracteres especiales"
+            minCharsCriteriaMsg="Debe contener al menos 8 caracteres"
+            [passwordComponent]="passwordComponentWithConfirmation">
+          </mat-password-strength-info>
+
+          <!--password input field for confirmation-->
+          <mat-form-field class="pswd-field" appearance="outline" [color]="passwordComponentWithConfirmation.color">
+            <mat-label>Confirmar contraseña</mat-label>
+            <mat-pass-toggle-visibility #toggleConfirmPassword matSuffix></mat-pass-toggle-visibility>
+            <input matInput
+                   [type]="toggleConfirmPassword.type"
+                   required
+                   [formControl]="passwordComponentWithConfirmation.passwordConfirmationFormControl"
+                   placeholder="Password">
+            <mat-error *ngIf="passwordComponentWithConfirmation.passwordConfirmationFormControl.hasError('required')">
+              Se requiere confirmar la contraseña
+            </mat-error>
+            <mat-error
+              *ngIf="passwordComponentWithConfirmation.passwordConfirmationFormControl.hasError('notConfirmed')">
+              La contraseña no coincide
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <button
+          mat-flat-button
+          class="submit-button"
+          color="primary"
+          [disabled]="!registerForm.valid || !this.passwordComponentWithConfirmation.passwordConfirmationFormControl.valid"
+        >
+          Crear Cuenta
+        </button>
+        <span
+          class="recover-link"
+          routerLink="/login"
+        >
+            Ya tengo una cuenta
+          </span>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

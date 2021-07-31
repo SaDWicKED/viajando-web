@@ -28,6 +28,7 @@ import { SidenavComponent } from './modules/ui/sidenav/sidenav.component';
 import { LoaderComponent } from './modules/ui/loader/loader.component';
 import {SnackInfoComponent} from "./modules/ui/snack-info/snack-info.component";
 import { LoginRequestComponent } from './modules/ui/login-redirection/login-request.component';
+import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LoginRequestComponent } from './modules/ui/login-redirection/login-requ
     TravelersModule,
     UserProfileModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatPasswordStrengthModule
   ],
   providers: [
     httpInterceptorProviders,
