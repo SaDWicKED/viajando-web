@@ -13,12 +13,11 @@ import {map} from "rxjs/operators";
 export class AuthService {
 
   public currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  public currentUser: Observable<User> | undefined;
 
   constructor(private httpClient: HttpClient,
               private securityService: SecurityService,) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser') + ''));
-    this.currentUser = new Observable<User>();
   }
 
   isAuthenticated(): boolean {
