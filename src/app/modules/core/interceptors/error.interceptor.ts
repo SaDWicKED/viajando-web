@@ -82,13 +82,13 @@ export class ErrorInterceptor implements HttpInterceptor {
   }
 
   refreshEverything() {
-    const refreshToken = JSON.parse(sessionStorage.getItem('user_id') + '').refreshToken;
+    const refreshToken = JSON.parse(sessionStorage.getItem('user_id')!).refreshToken;
     return this.authService.refreshToken(refreshToken).pipe(
       flatMap(tokenData => {
         sessionStorage.setItem('user_id', JSON.stringify(tokenData));
         return this.authService.getToken().pipe(
           tap(token => {
-            sessionStorage.setItem('token', token.accessToken + '');
+            sessionStorage.setItem('token', token.access_token!);
           })
         );
       } )

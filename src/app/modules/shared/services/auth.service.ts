@@ -3,9 +3,9 @@ import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
 import {User} from "../../api/auth/models/user";
 import {SecurityService} from "../../api/auth/services/security.service";
-import {Tokens} from "../../api/auth/models/tokens";
 import jwt_decode from 'jwt-decode';
 import {map} from "rxjs/operators";
+import {Traveler} from "../models/traveler";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient,
               private securityService: SecurityService,) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser') + ''));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')!));
   }
 
   isAuthenticated(): boolean {
@@ -30,9 +30,9 @@ export class AuthService {
     ).pipe( map(
       data => {
         sessionStorage.setItem('user_id', JSON.stringify(data));
-        sessionStorage.setItem('token', data.accessToken + '');
+        sessionStorage.setItem('token', data.accessToken!);
         const token = data.idToken;
-        const userData: any = jwt_decode(token + '');
+        const userData: any = jwt_decode(token!);
 
         const user: User = {
           userName,
@@ -47,9 +47,15 @@ export class AuthService {
         };
 
         sessionStorage.setItem('currentUser', JSON.stringify(user));
-        sessionStorage.setItem('lastUser', user.id + '');
+        sessionStorage.setItem('lastUser', user.id!);
         this.currentUserSubject.next(user);
 
+        if (!localStorage.getItem('viajeros' + user.id)) {
+          const travelers = [
+            new Traveler(user.firstName + ' ' + user.lastName, user.ci + '' ),
+          ];
+          localStorage['viajeros' + user.id] = JSON.stringify(travelers);
+        }
         return user;
       }
     ));
@@ -63,12 +69,12 @@ export class AuthService {
     this.currentUserSubject.next({});
   }
 
-  refreshToken(token: string): Observable<Tokens> {
+  refreshToken(token: string): Observable<any> {
     return this.securityService.refreshToken({token});
   }
 
-  getToken(): Observable<Tokens> {
-    const user = JSON.parse(sessionStorage.getItem('user_id') + '');
+  getToken(): Observable<any> {
+    const user = JSON.parse(sessionStorage.getItem('user_id')!);
     const params = new HttpParams()
       .set('grant_type', 'urn:ietf:params:oauth:grant-type:jwt-bearer')
       .set('assertion', user.idToken);

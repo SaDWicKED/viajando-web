@@ -18,8 +18,8 @@ export class JwtInterceptor implements HttpInterceptor {
 
     if (!this.notJwtEndpoints.includes(request.url)) {
       if (currentUser && (request.url.includes('payment') ||
-        request.url.includes('users') ||
-        request.url.includes('reservation'))) {
+                          request.url.includes('users') ||
+                          request.url.includes('reservation'))) {
         request = request.clone({
           setHeaders: {
             Authorization: 'Bearer ' + accessToken
