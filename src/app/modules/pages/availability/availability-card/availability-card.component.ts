@@ -57,7 +57,7 @@ export class AvailabilityCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const lastTravel = JSON.parse(localStorage.getItem('lastTravel') + '');
+    const lastTravel = JSON.parse(localStorage.getItem('lastTravel')!);
 
     this.locationService.localities().subscribe(localities => {
       this.origins = localities;
@@ -71,7 +71,7 @@ export class AvailabilityCardComponent implements OnInit {
     this.settingsService.settings().subscribe(settings => {
       this.travelForm.get('departureDateCtrl')?.enable();
       this.travelForm.get('comebackDateCtrl')?.enable();
-      this.maxDate = new Date(settings.endBusDate + '');
+      this.maxDate = new Date(settings.endBusDate! );
     });
 
     this.travelForm.get('originCtrl')?.valueChanges.subscribe(value => {
@@ -165,7 +165,7 @@ export class AvailabilityCardComponent implements OnInit {
 
   // Establece la fecha de salida seleccionada como la fecha minima de regreso
   onDateChange($event: MatDatepickerInputEvent<Date>): void {
-    this.minDate2 = new Date($event.value + '');
+    this.minDate2 = new Date($event.value!);
   }
 
   // Valida el origen

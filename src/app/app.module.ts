@@ -29,6 +29,7 @@ import { LoaderComponent } from './modules/ui/loader/loader.component';
 import {SnackInfoComponent} from "./modules/ui/snack-info/snack-info.component";
 import { LoginRequestComponent } from './modules/ui/login-redirection/login-request.component';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
+import { ConfirmDialogComponent } from './modules/ui/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatPasswordStrengthModule } from '@angular-material-extensions/password
     SidenavComponent,
     LoaderComponent,
     SnackInfoComponent,
-    LoginRequestComponent
+    LoginRequestComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     HttpClientModule,

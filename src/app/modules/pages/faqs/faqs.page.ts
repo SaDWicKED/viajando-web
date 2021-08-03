@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FaqsService} from "../../api/faqs/services/faqs.service";
 import {HeaderService} from "../../ui/header/header.service";
 import {Faq} from "../../api/faqs/models/faq";
+import {RedirectionService} from "../../shared/services/redirection.service";
 
 @Component({
   selector: 'app-faqs',
@@ -14,8 +15,10 @@ export class FaqsPage implements OnInit {
   filteredFaqs: Faq[];
 
   constructor(private faqsService: FaqsService,
-              private headerService: HeaderService) {
+              private headerService: HeaderService,
+              private redirectionService: RedirectionService,) {
     headerService.setTitle('Preguntas Frecuentes')
+    redirectionService.setReturnURL('/faqs');
     this.questions = [];
     this.filteredFaqs = [];
   }

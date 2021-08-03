@@ -15,7 +15,6 @@ export class RedirectionService {
 
   setReturnURL(newURL: string): void {
     const re = /,/g;
-    this.returnUrl = 'viajando/' + newURL.replace(re, '/');
-    // console.log(this.returnUrl);
+    this.returnUrl = newURL.replace(re, '/');
   }
 }

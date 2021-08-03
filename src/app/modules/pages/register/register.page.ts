@@ -1,5 +1,5 @@
 import {AfterContentChecked, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatPasswordStrengthComponent} from '@angular-material-extensions/password-strength';
 import {HeaderService} from "../../ui/header/header.service";
 import {CustomValidators} from "../../shared/tools/custom-validators";
@@ -46,9 +46,11 @@ export class RegisterPage implements AfterContentChecked {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  get f(): {[p: string]: AbstractControl} {
+    return this.registerForm.controls;
+  }
 
-  ngAfterContentChecked() {
+  ngAfterContentChecked(): void {
     this.cdref.detectChanges();
   }
 

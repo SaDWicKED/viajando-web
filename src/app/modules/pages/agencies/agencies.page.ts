@@ -3,7 +3,6 @@ import {HeaderService} from "../../ui/header/header.service";
 import {Agency} from "../../api/availability/models/agency";
 import {RedirectionService} from "../../shared/services/redirection.service";
 import {DispService} from "../../api/availability/services/disp.service";
-import {ActivatedRoute} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {AgencyDetailComponent} from "./agency-detail/agency-detail.component";
 
@@ -24,7 +23,6 @@ export class AgenciesPage implements OnInit {
   constructor(private headerService: HeaderService,
               private redirectionService: RedirectionService,
               private agencyService: DispService,
-              private route: ActivatedRoute,
               private dialog: MatDialog) {
     headerService.setTitle('Agencias');
     this.agencies = [];
@@ -34,7 +32,7 @@ export class AgenciesPage implements OnInit {
     this.agencyService.agencies().subscribe(agencies => {
       this.agencies = agencies;
     });
-    this.redirectionService.setReturnURL(this.route.snapshot.url.toString());
+    this.redirectionService.setReturnURL('/agencies');
   }
 
   filterAgencyByName(name: string): Agency[] {

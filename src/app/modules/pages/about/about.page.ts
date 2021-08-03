@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {SidenavService} from "../../shared/services/sidenav.service";
 import {HeaderService} from "../../ui/header/header.service";
 import {PolicyComponent} from "./policy/policy.component";
+import {RedirectionService} from "../../shared/services/redirection.service";
 
 @Component({
   selector: 'app-about',
@@ -13,8 +14,10 @@ export class AboutPage implements OnDestroy {
 
   constructor(private dialog: MatDialog,
               private sidenavService: SidenavService,
-              private headerService: HeaderService) {
+              private headerService: HeaderService,
+              private redirectionService: RedirectionService) {
     headerService.setHeight(65);
+    redirectionService.setReturnURL('/about')
   }
 
   onPolicyClick(): void {
