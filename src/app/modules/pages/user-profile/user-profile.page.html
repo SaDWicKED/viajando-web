@@ -1,1 +1,90 @@
-<p>user-profile works!</p>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <h3>Información Básica</h3>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput required maxlength="40" formControlName=givenName />
+          <mat-error *ngIf="profileForm.get('givenName')?.hasError('nameIsInvalid')">
+            Debe insertar un nombre válido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput required maxlength="40" formControlName=familyName />
+
+          <mat-error *ngIf="profileForm.get('familyName')?.hasError('nameIsInvalid')">
+            Debe insertar apellidos válidos
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Correo</mat-label>
+          <input matInput required maxlength="60" formControlName=email />
+          <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+            Debe insertar una dirección de correo válida
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Número de Identidad</mat-label>
+          <input matInput required maxlength="11" formControlName="ci"/>
+          <mat-error *ngIf="profileForm.get('ci')?.hasError('idIsInvalid')">
+            Debe insertar un número de carnet válido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Número de teléfono móvil</mat-label>
+          <input matInput required maxlength="10" formControlName="mobile" />
+          <mat-error *ngIf="profileForm.get('mobile')?.hasError('phoneIsInvalid')">
+            Debe insertar un número de teléfono válido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Provincia</mat-label>
+          <mat-select required formControlName="provinceCtrl" (selectionChange)="provinceSelectionChanged($event)">
+            <mat-option *ngFor="let province of this.provinces" value="{{province}}">{{province}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="profileForm.get('provinceCtrl')?.hasError('required')">
+            Por favor seleccione su provincia
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Municipio</mat-label>
+          <mat-select required formControlName="municipalityCtrl">
+            <mat-option *ngFor="let municipality of this.municipalities" value="{{municipality}}">{{municipality}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="profileForm.get('municipalityCtrl')?.hasError('required')">
+            Por favor seleccione su municipio
+          </mat-error>
+        </mat-form-field>
+
+        <div class="form-buttons">
+          <button class="booking-button"
+                  mat-raised-button
+                  type="submit"
+                  [disabled]="!profileForm.valid || !profileForm.dirty"
+          >
+            Guardar
+          </button>
+          <button
+            mat-raised-button
+            type="button"
+            routerLink="/"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
