@@ -1,1 +1,16 @@
-<p>travelers works!</p>
+<div class="container">
+  <app-traveler-card
+    *ngFor="let traveler of travelers; let i = index"
+    [traveler]=traveler
+    [index]=i
+    (deleteItemEvent)="onDelete()"
+  ></app-traveler-card>
+  <button
+    class="rounded"
+    mat-raised-button
+    (click)="onInsert()"
+    [disabled]="max===10"
+  >
+    Nuevo viajero
+  </button>
+</div>

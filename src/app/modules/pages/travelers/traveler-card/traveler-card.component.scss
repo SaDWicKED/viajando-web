@@ -1,0 +1,47 @@
+.traveler-card{
+  .header{
+    display: flex;
+    flex-direction: row;
+    background-color: #fd9701;
+    justify-content: space-between;
+    align-items: center;
+
+    .delete-btn{
+      button{
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        mat-icon{
+          color: white;
+        }
+      }
+    }
+
+    .title{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      mat-icon{
+        color: white;
+        margin: 5px;
+      }
+      span {
+        margin-left: 5px;
+        font-size: 18px;
+        color: white;
+      }
+    }
+
+  }
+  .info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    .form-field{
+      width: 100%;
+    }
+  }
+}

@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { TravelersRoutingModule } from './travelers-routing.module';
 import { TravelersPage } from './travelers.page';
+import {MaterialModule} from "../../material/material.module";
+import { TravelerCardComponent } from './traveler-card/traveler-card.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
-    TravelersPage
+    TravelersPage,
+    TravelerCardComponent
   ],
   imports: [
     CommonModule,
-    TravelersRoutingModule
+    TravelersRoutingModule,
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class TravelersModule { }

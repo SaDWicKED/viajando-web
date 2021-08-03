@@ -1,0 +1,41 @@
+<mat-card class="traveler-card">
+
+  <div class="header">
+    <div class="title">
+      <mat-icon>person</mat-icon>
+      <span>Pasajero #{{index!+1}}</span>
+    </div>
+    <div class="delete-btn">
+      <button (click)="onDelete()"><mat-icon>delete</mat-icon></button>
+    </div>
+  </div>
+
+  <form class="info" [formGroup]="travelerForm!">
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input type="text"
+             matInput formControlName=fullName
+             maxlength="50"
+             placeholder="Ej. Juán Carlos">
+      <mat-error *ngIf="travelerForm!.get('fullNameCtrl')?.hasError('nameIsInvalid')">
+        Debe insertar un nombre válido
+      </mat-error>
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="outline">
+      <mat-label>No. Identificación</mat-label>
+      <input type="text"
+             maxlength="11"
+             matInput formControlName=id
+             placeholder="Ej. 88040722525">
+      <mat-error *ngIf="travelerForm!.get('idCtrl')?.hasError('idIsInvalid')">
+        Debe insertar un número de carnet válido
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-card>
