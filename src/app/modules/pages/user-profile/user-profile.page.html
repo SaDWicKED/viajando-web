@@ -72,7 +72,7 @@
           <button class="booking-button"
                   mat-raised-button
                   type="submit"
-                  [disabled]="!profileForm.valid || !profileForm.dirty"
+                  [disabled]="!profileForm.valid || !profileForm.dirty || loading"
           >
             Guardar
           </button>

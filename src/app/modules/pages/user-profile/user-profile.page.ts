@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "../../shared/tools/custom-validators";
 import {User} from "../../api/auth/models/user";
@@ -17,13 +17,14 @@ import {RedirectionService} from "../../shared/services/redirection.service";
   templateUrl: './user-profile.page.html',
   styleUrls: ['./user-profile.page.scss']
 })
-export class UserProfilePage {
+export class UserProfilePage implements OnInit{
 
   locations: any;
   provinces: any;
   municipalities: string[];
   profileForm: FormGroup;
   user: User;
+  loading: boolean;
 
   constructor(private headerService: HeaderService,
               private authService: AuthService,
@@ -38,6 +39,7 @@ export class UserProfilePage {
     this.locations = places.locations;
     this.provinces = Object.keys(this.locations);
     this.municipalities = this.getMunicipalitiesByProvince(this.user.state!);
+    this.loading = false;
 
     this.profileForm = new FormGroup({
       givenName: new FormControl(this.user.firstName, [Validators.required, CustomValidators.invalidName]),
@@ -50,13 +52,17 @@ export class UserProfilePage {
     });
   }
 
+  ngOnInit(): void {
+
+  }
+
   // convenience getter for easy access to form fields
   get f(): {[p: string]: AbstractControl} {
     return this.profileForm.controls;
   }
 
   onSubmit() {
-
+    this.loading = true;
     const user: User = {
       userName: this.f.email.value.replace('@', '.'),
       id: this.user.id,
@@ -72,6 +78,7 @@ export class UserProfilePage {
     this.usersService.updateUser({body: user}).subscribe(() => {
       sessionStorage.setItem('currentUser', JSON.stringify(user));
       this.authService.currentUserSubject.next(user);
+      this.loading = false;
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
         disableClose: true,
         width: '500px',
@@ -99,5 +106,7 @@ export class UserProfilePage {
   getMunicipalitiesByProvince(province: string): string[] {
     return this.locations[`${province}`];
   }
+
+
 
 }
