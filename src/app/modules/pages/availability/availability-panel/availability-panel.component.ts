@@ -9,10 +9,10 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-availability-card',
-  templateUrl: './availability-card.component.html',
-  styleUrls: ['./availability-card.component.scss']
+  templateUrl: './availability-panel.component.html',
+  styleUrls: ['./availability-panel.component.scss']
 })
-export class AvailabilityCardComponent implements OnInit {
+export class AvailabilityPanelComponent implements OnInit {
 
   travelForm: FormGroup;
   minDate1: Date;

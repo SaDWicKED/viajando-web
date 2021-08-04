@@ -3,7 +3,7 @@ import {CommonModule, DatePipe} from '@angular/common';
 
 import { AvailabilityRoutingModule } from './availability-routing.module';
 import { AvailabilityPage } from './availability.page';
-import { AvailabilityCardComponent } from './availability-card/availability-card.component';
+import { AvailabilityPanelComponent } from './availability-panel/availability-panel.component';
 import {MaterialModule} from "../../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
 
@@ -11,7 +11,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AvailabilityPage,
-    AvailabilityCardComponent
+    AvailabilityPanelComponent
   ],
   imports: [
     CommonModule,
