@@ -88,4 +88,12 @@ export class AuthService {
 
     return this.httpClient.post<any>('https://gateway.viajando.transnet.cu/token', params, httpOptions );
   }
+
+  sendPasswordUpdate(code: string, password: string) {
+    return this.securityService.setPassword({body: {code, password}});
+  }
+
+  requestPasswordChange(userName: string) {
+    return this.securityService.recoverPassword({userName});
+  }
 }
