@@ -13,7 +13,7 @@ export class ActivateAccountPage {
 
   activateForm: FormGroup;
 
-  returnUrl = 'viajando/login';
+  returnUrl = 'login';
 
   constructor(private headerService: HeaderService,
               private securityService: SecurityService,
