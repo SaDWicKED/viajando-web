@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "../../../shared/tools/custom-validators";
 import {Traveler} from "../../../shared/models/traveler";
-import {TravelersService} from "../travelers.service";
 
 @Component({
   selector: 'app-traveler-card',
@@ -17,7 +16,7 @@ export class TravelerCardComponent implements OnInit {
   travelerForm: FormGroup | undefined;
   currentUser;
 
-  constructor(private travelersService: TravelersService) {
+  constructor() {
     this.currentUser = JSON.parse(sessionStorage.getItem('currentUser') + "");
   }
 
@@ -32,8 +31,6 @@ export class TravelerCardComponent implements OnInit {
         const item = JSON.parse(localStorage.getItem('viajeros' + this.currentUser.id)!);
         item[this.index!] = val;
         localStorage.setItem('viajeros' + this.currentUser.id, JSON.stringify(item));
-
-        this.travelersService.travelerSaved.next(val);
       }
     });
   }

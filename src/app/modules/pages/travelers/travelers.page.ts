@@ -1,9 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from "rxjs";
 import {Traveler} from "../../shared/models/traveler";
 import {User} from "../../api/auth/models/user";
 import {HeaderService} from "../../ui/header/header.service";
-import {TravelersService} from "./travelers.service";
 
 @Component({
   selector: 'app-travelers',
@@ -15,11 +13,9 @@ export class TravelersPage implements OnInit, OnDestroy {
   travelers: Traveler[] | undefined;
   max: number | undefined;
   currentUser: User | undefined;
-  travelerSavedSubs: Subscription | undefined;
 
 
-  constructor(private headerService: HeaderService,
-              private travelersService: TravelersService) {
+  constructor(private headerService: HeaderService) {
     this.headerService.setTitle('Mis Viajeros');
   }
 
@@ -30,32 +26,25 @@ export class TravelersPage implements OnInit, OnDestroy {
       this.travelers = JSON.parse(viajeros);
       this.max = JSON.parse(viajeros).length;
     }
-
-    this.travelerSavedSubs = this.travelersService.travelerSaved.subscribe(() => {
-      this.travelers = JSON.parse(localStorage.getItem('viajeros' + this.currentUser!.id)!);
-    });
   }
 
   ngOnDestroy(): void {
+    this.travelers = JSON.parse(localStorage.getItem('viajeros' + this.currentUser!.id)!);
     this.removeInvalidTravelers();
     localStorage['viajeros' + this.currentUser!.id] = JSON.stringify(this.travelers);
-    this.travelerSavedSubs!.unsubscribe();
+  }
+
+  onInsert(): void {
+    this.max! += 1;
+    const travelers: Traveler[] = JSON.parse(localStorage.getItem('viajeros' + this.currentUser!.id)!);
+    travelers.push(new Traveler('', ''));
+    this.travelers = travelers;
+    localStorage['viajeros' + this.currentUser!.id] = JSON.stringify(this.travelers);
   }
 
   onDelete(): void {
     this.max! -= 1;
     this.travelers = JSON.parse(localStorage.getItem('viajeros' + this.currentUser!.id)!);
-  }
-
-  onInsert(): void {
-    this.max! += 1;
-    let travelers: Traveler[] = [];
-    if (localStorage.getItem('viajeros' + this.currentUser!.id)) {
-      travelers = JSON.parse(localStorage.getItem('viajeros' + this.currentUser!.id)!);
-    }
-    travelers.push(new Traveler('', ''));
-    this.travelers = travelers;
-    localStorage['viajeros' + this.currentUser!.id] = JSON.stringify(this.travelers);
   }
 
   removeInvalidTravelers() {
