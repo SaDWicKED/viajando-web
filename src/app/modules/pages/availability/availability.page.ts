@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {HeaderService} from "../../ui/header/header.service";
+import {RedirectionService} from "../../shared/services/redirection.service";
 
 @Component({
   selector: 'app-availability',
@@ -8,8 +9,10 @@ import {HeaderService} from "../../ui/header/header.service";
 })
 export class AvailabilityPage {
 
-  constructor(private headerService: HeaderService) {
+  constructor(private headerService: HeaderService,
+              private redirectionService: RedirectionService,) {
     this.headerService.setTitle('Disponibilidad');
+    this.redirectionService.setReturnURL('/');
   }
 
 }
