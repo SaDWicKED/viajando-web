@@ -27,7 +27,7 @@ import { FooterComponent } from './modules/ui/footer/footer.component';
 import { SidenavComponent } from './modules/ui/sidenav/sidenav.component';
 import { LoaderComponent } from './modules/ui/loader/loader.component';
 import {SnackInfoComponent} from "./modules/ui/snack-info/snack-info.component";
-import { LoginRequestComponent } from './modules/ui/login-redirection/login-request.component';
+import { LoginRequestComponent } from './modules/ui/login-request/login-request.component';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { ConfirmDialogComponent } from './modules/ui/confirm-dialog/confirm-dialog.component';
 import {FormsModule} from "@angular/forms";
