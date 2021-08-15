@@ -9,7 +9,7 @@
   </div>
 
   <div class="buttons">
-    <button (click)="onCancel()" *ngIf="data.cancelText">{{data.cancelText.toUpperCase()}}</button>
-    <button (click)="onConfirm()">{{data.acceptText.toUpperCase()}}</button>
+    <button mat-button (click)="onCancel()" *ngIf="data.cancelText">{{data.cancelText.toUpperCase()}}</button>
+    <button mat-button (click)="onConfirm()">{{data.acceptText.toUpperCase()}}</button>
   </div>
 </div>
