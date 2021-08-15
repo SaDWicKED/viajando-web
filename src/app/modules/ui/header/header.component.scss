@@ -9,6 +9,12 @@ $medium: 992px;
   background: #303F9FFF;
 }
 
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
 h1{
   color: white;
   font-size: 3.5em;
