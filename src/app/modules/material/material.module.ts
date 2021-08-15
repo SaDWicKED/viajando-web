@@ -20,6 +20,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 const modules = [
   MatButtonModule,
@@ -40,7 +41,8 @@ const modules = [
   MatNativeDateModule,
   MatProgressBarModule,
   MatExpansionModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCheckboxModule
 ];
 
 @NgModule({

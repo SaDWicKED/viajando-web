@@ -4,8 +4,12 @@
     <span class="content">{{data.content}}</span>
   </div>
 
+  <div class="no-show-again" *ngIf="data.showAgain">
+    <mat-checkbox [(ngModel)]="noShowAgain">No mostrar de nuevo</mat-checkbox>
+  </div>
+
   <div class="buttons">
-    <button (click)="dialogRef.close(false)" *ngIf="data.cancelText">{{data.cancelText.toUpperCase()}}</button>
-    <button (click)="dialogRef.close(true)">{{data.acceptText.toUpperCase()}}</button>
+    <button (click)="onCancel()" *ngIf="data.cancelText">{{data.cancelText.toUpperCase()}}</button>
+    <button (click)="onConfirm()">{{data.acceptText.toUpperCase()}}</button>
   </div>
 </div>

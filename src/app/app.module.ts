@@ -30,6 +30,7 @@ import {SnackInfoComponent} from "./modules/ui/snack-info/snack-info.component";
 import { LoginRequestComponent } from './modules/ui/login-redirection/login-request.component';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { ConfirmDialogComponent } from './modules/ui/confirm-dialog/confirm-dialog.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ConfirmDialogComponent } from './modules/ui/confirm-dialog/confirm-dial
     UserProfileModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatPasswordStrengthModule
+    MatPasswordStrengthModule,
+    FormsModule
   ],
   providers: [
     httpInterceptorProviders,

@@ -6,8 +6,12 @@ $medium: 992px;
   width: auto;
 
   @media screen and (max-width: $medium) {
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .no-show-again{
+    margin: 10px;
   }
 
   .buttons {
@@ -20,6 +24,7 @@ $medium: 992px;
       margin: 10px;
       background-color: transparent;
       border: none;
+      cursor: pointer;
     }
   }
 }

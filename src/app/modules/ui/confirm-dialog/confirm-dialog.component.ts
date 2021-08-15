@@ -17,9 +17,20 @@ export interface DialogData {
 })
 export class ConfirmDialogComponent {
 
+  noShowAgain: boolean | undefined;
+
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
+  onCancel(): void {
+    this.dialogRef.close(false);
+  }
 
+  onConfirm(): void {
+    if (this.noShowAgain) {
+      localStorage.setItem(this.data.tag, 'true');
+    }
+    this.dialogRef.close(true);
+  }
 }
