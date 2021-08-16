@@ -6,6 +6,7 @@ import {DispService} from "../../../api/availability/services/disp.service";
 import {SettingsService} from "../../../api/settings/services/settings.service";
 import {DatePipe} from "@angular/common";
 import {Router} from "@angular/router";
+import {NavigationStatusService} from "../../../shared/services/navigation-status.service";
 
 @Component({
   selector: 'app-availability-card',
@@ -32,6 +33,7 @@ export class AvailabilityPanelComponent implements OnInit {
 
   constructor( private locationService: DispService,
                private settingsService: SettingsService,
+               private navigationStatusService: NavigationStatusService,
                private datePipe: DatePipe,
                private router: Router) {
     this.minDate1 = new Date();
@@ -59,6 +61,7 @@ export class AvailabilityPanelComponent implements OnInit {
   ngOnInit(): void {
     const lastTravel = JSON.parse(localStorage.getItem('lastTravel')!);
 
+    // cargar las localidades
     this.locationService.localities().subscribe(localities => {
       this.origins = localities;
       this.filteredOrigins = localities;
@@ -68,17 +71,24 @@ export class AvailabilityPanelComponent implements OnInit {
       }
     });
 
+    // establecer el limite de la fecha maxima
     this.settingsService.settings().subscribe(settings => {
       this.travelForm.get('departureDateCtrl')?.enable();
       this.travelForm.get('comebackDateCtrl')?.enable();
-      this.maxDate = new Date(settings.endBusDate! );
+
+      const dates = [];
+      dates.push(new Date(settings.endBusDate!).getTime())
+      dates.push(new Date(settings.endShipDate!).getTime());
+      dates.push(new Date(settings.endTrainDate!).getTime());
+
+      this.maxDate = new Date(Math.max(...dates));
     });
 
+    // campturar los cambios en la seleccion de origen para actualizar los destinos posibles
     this.travelForm.get('originCtrl')?.valueChanges.subscribe(value => {
       this.filteredOrigins = this.filterLocations(value, this.origins);
       this.travelForm.get('destinationCtrl')?.setValue('');
       this.travelForm.get('destinationCtrl')?.disable();
-
 
       if (this.travelForm.get('originCtrl')?.valid) {
         this.travelForm.get('destinationCtrl')?.enable();
@@ -126,6 +136,7 @@ export class AvailabilityPanelComponent implements OnInit {
       departureDate,
       comebackDate,
     };
+
     localStorage.setItem('lastTravel', JSON.stringify(lastTravel));
 
     this.router.navigateByUrl('/results/' +
@@ -149,18 +160,13 @@ export class AvailabilityPanelComponent implements OnInit {
   ////////////////////////////////////
 
   // Filtra las localidades dado un valor
-  filterLocations(value: string, localities: Locality[]): Locality[]{
+  private filterLocations(value: string, localities: Locality[]): Locality[]{
     return localities.filter(locality => locality.name?.toLowerCase().includes(value?.toLowerCase()))
   }
 
   // Obtiene el codigo de una localidad dado el nombre
-  getCodeByNameLocations(name: string, locations: Locality[]): string | undefined {
+  private getCodeByNameLocations(name: string, locations: Locality[]): string | undefined {
     return locations.filter(locality => locality.name === name)[0].code;
-  }
-
-  // Obtiene el nombre de una localidad dado el codigo
-  getNamebyCodeLocations(code: string, locations: Locality[]): string | undefined {
-    return locations.filter(locality => locality.code === code)[0].name;
   }
 
   // Establece la fecha de salida seleccionada como la fecha minima de regreso
