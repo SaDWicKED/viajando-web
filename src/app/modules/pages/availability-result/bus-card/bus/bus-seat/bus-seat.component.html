@@ -1,0 +1,24 @@
+<div class="flex-center" (click)="onClick()">
+  <p *ngIf="seat!.seatState === 0 || seat!.seatState === 1"
+     class="seat-number"
+     [ngStyle]="{
+    'background' : seat!.seatState === 0 ? '#d6f1d8': ((seat!.seatState === 1) ? '#b6c0fd' : '#fd5152')}"
+  >
+    {{seat!.seatNumber}}
+  </p>
+
+  <mat-icon
+    *ngIf="seat!.seatState !== 0 && seat!.seatState !== 1"
+    class="flex-center not-icon"
+  >
+    not_interested
+  </mat-icon>
+  <div
+    class="flex-center"
+    [ngClass]="{'bus-chair':true, 'hover-selected':seat!.seatState === 1, 'hover-available':seat!.seatState === 0} "
+    [ngStyle]="{
+    'background-color' : seat!.seatState === 0 ? '#4bae50': ((seat!.seatState === 1) ? '#3845a3' : ((seat!.seatState === 3) ? '#7e7e7e' : '#fd5152')),
+    'pointer-events': seat!.seatState === 2 || seat!.seatState === 3 ? 'none' : 'auto'
+    }">
+  </div>
+</div>

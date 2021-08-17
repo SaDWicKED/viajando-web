@@ -1,0 +1,86 @@
+$small: 768px;
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bus-chair{
+  mask-image: url('../../../../../../../assets/img/css_sprites.png');
+  pointer-events: auto;
+  mask-repeat: no-repeat;
+  mask-position: -188px -109px;
+  transform: scaleX(-1);
+  background-color: lightblue;
+  cursor: pointer;
+  mask-size: 252px 232.2px;
+  background-size: 30px;
+  height: 50px;
+  width: 50px;
+
+
+  @media screen and (max-width: $small) {
+    mask-size: 201.6px 185.76px;
+    mask-position: -150.4px -87.2px;
+    background-size: 24px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.hover-selected{
+  &:hover{
+    background-color: darken(#8aa4e5, 10%) !important;
+  }
+}
+
+.hover-available{
+  &:hover{
+    background-color: darken(lightgreen, 10%) !important;
+  }
+}
+
+.seat-number{
+  text-align: center;
+  color: #323232;
+  font-weight: 400;
+  position: relative;
+  margin: 0;
+  width: 21px;
+  height: 21px;
+  left: 23px;
+  top: -12px;
+  font-size: 10pt;
+  border-radius: 50%;
+
+  @media screen and (max-width: $small) {
+    width: 16.8px;
+    height: 16.8px;
+    left: 18.4px;
+    top: -9.6px;
+    font-size: 8pt;
+  }
+}
+
+.not-icon{
+  text-align: center;
+  color: #d71e18;
+  font-weight: 400;
+  position: relative;
+  margin: 0;
+  width: 21px;
+  height: 21px;
+  left: 23px;
+  top: -12px;
+  font-size: 17pt;
+
+  @media screen and (max-width: $small) {
+    width: 16.8px;
+    height: 16.8px;
+    left: 18.4px;
+    top: -9.6px;
+    font-size: 14pt;
+  }
+
+}
