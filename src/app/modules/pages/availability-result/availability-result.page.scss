@@ -1,0 +1,83 @@
+$small: 768px;
+
+app-availability-card{
+  width: 100%;
+  max-width: 500px;
+
+  @media screen and (max-width: $small) {
+    max-width: 80%;
+  }
+}
+
+.sticky-top {
+  position: sticky;
+  top: 65px;
+  z-index: 6000;
+}
+
+.top-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  width: 300px;
+
+  button {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    font-size: 15px;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    mat-icon {
+      font-size: 25px;
+    }
+  }
+
+  .selected {
+    color: #fd9701;
+  }
+
+  .no-selected {
+    color: #7e7e7e;
+  }
+}
+
+.container{
+  margin: 20px auto 20vh auto;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+  }
+
+  .availability-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    .empty {
+      text-align: center;
+      font-size: 20px;
+      color: #d71e18;
+      max-width: 330px;
+
+      @media screen and (max-width: $small) {
+        max-width: 80%;
+      }
+    }
+  }
+}

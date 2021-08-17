@@ -1,1 +1,152 @@
-<p>availability-result works!</p>
+<div class="sticky-top top-info">
+  <mat-card class="tab-buttons">
+    <button [ngClass]="selectedTravelMode === 'Omnibus'? 'selected' : 'no-selected'" (click)="onTravelMode('Omnibus')">
+      <mat-icon>directions_bus</mat-icon>&nbsp;Ómnibus
+    </button>
+    <button [ngClass]="selectedTravelMode === 'Tren'? 'selected' : 'no-selected'" (click)="onTravelMode('Tren')">
+      <mat-icon>train</mat-icon>&nbsp;Tren
+    </button>
+    <button [ngClass]="selectedTravelMode === 'Catamaran'? 'selected' : 'no-selected'" (click)="onTravelMode('Catamaran')">
+      <mat-icon>directions_boat</mat-icon>&nbsp;Catamarán
+    </button>
+  </mat-card>
+</div>
+
+<div class="container">
+  <div class="title">
+    <h1 *ngIf="!depSelected">
+      Seleccionar viaje de ida
+    </h1>
+
+    <h1 *ngIf="depSelected">
+      Seleccionar viaje de Vuelta
+    </h1>
+  </div>
+
+
+  <div class="ida"
+       *ngIf="!depSelected"
+  >
+
+    <!--    bus ida-->
+    <div class="availability-list" *ngIf="selectedTravelMode === 'Omnibus'">
+      <div class="empty" *ngIf="depBusAvailability && !depBusAvailability.length">
+        <p>No se encuentran capacidades disponibles para el viaje seleccionado</p>
+      </div>
+
+      <app-availability-card
+        *ngFor="let item1 of depBusAvailability"
+        [item]="item1"
+      ></app-availability-card>
+
+      <h2 *ngIf="depBusSuggestions && depBusSuggestions.length">Viajes Sugeridos:</h2>
+      <app-availability-card
+        *ngFor="let item1 of depBusSuggestions"
+        [item]="item1"
+      ></app-availability-card>
+
+    </div>
+
+    <!--    tren ida-->
+    <div class="availability-list" *ngIf="selectedTravelMode === 'Tren'">
+      <div class="empty" *ngIf="depTrainAvailability && !depTrainAvailability.length">
+        <p>No se encuentran capacidades disponibles para el viaje seleccionado</p>
+      </div>
+
+      <app-availability-card
+        *ngFor="let item1 of depTrainAvailability"
+        [item]="item1"
+      ></app-availability-card>
+
+      <h2 *ngIf="depTrainSuggestions && depTrainSuggestions.length">Viajes Sugeridos:</h2>
+      <app-availability-card
+        *ngFor="let item1 of depTrainSuggestions"
+        [item]="item1"
+      ></app-availability-card>
+    </div>
+
+    <!--    catamaran ida-->
+    <div class="availability-list" *ngIf="selectedTravelMode === 'Catamaran'">
+      <div class="empty" *ngIf="depBoatAvailability && !depBoatAvailability.length">
+        <p>No se encuentran capacidades disponibles para el viaje seleccionado</p>
+      </div>
+
+      <app-availability-card
+        *ngFor="let item1 of depBoatAvailability"
+        [item]="item1"
+      ></app-availability-card>
+
+      <h2 *ngIf="depBoatSuggestions && depBoatSuggestions.length">Viajes Sugeridos:</h2>
+      <app-availability-card
+        *ngFor="let item1 of depBoatSuggestions"
+        [item]="item1"
+      ></app-availability-card>
+
+    </div>
+  </div>
+
+  <div class="regreso"
+       *ngIf="travelType === 'ida-regreso' && depSelected"
+  >
+
+    <!--    bus regreso-->
+    <div class="availability-list" *ngIf="selectedTravelMode === 'Omnibus'">
+
+      <div class="empty" *ngIf="cbBusAvailability && !cbBusAvailability.length">
+        <p>No se encuentran capacidades disponibles para el viaje seleccionado</p>
+      </div>
+
+      <app-availability-card
+        *ngFor="let item1 of cbBusAvailability"
+        [item]="item1"
+      ></app-availability-card>
+
+      <h2 *ngIf="cbBusSuggestions && cbBusSuggestions.length">Viajes Sugeridos:</h2>
+      <app-availability-card
+        *ngFor="let item1 of cbBusSuggestions"
+        [item]="item1"
+      ></app-availability-card>
+
+    </div>
+
+    <!--    tren regreso-->
+    <div class="availability-list" *ngIf="selectedTravelMode === 'Tren'">
+
+      <div class="empty" *ngIf="cbTrainAvailability && !cbTrainAvailability.length">
+        <p>No se encuentran capacidades disponibles para el viaje seleccionado</p>
+      </div>
+
+      <app-availability-card
+        *ngFor="let item1 of cbTrainAvailability"
+        [item]="item1"
+      ></app-availability-card>
+
+      <h3 *ngIf="cbTrainSuggestions && cbTrainSuggestions.length">Viajes Sugeridos:</h3>
+      <app-availability-card
+        *ngFor="let item1 of cbTrainSuggestions"
+        [item]="item1"
+      ></app-availability-card>
+
+    </div>
+
+    <!--    catamaran regreso-->
+    <div class="availability-list" *ngIf="selectedTravelMode === 'Catamaran'">
+
+      <div class="empty" *ngIf="cbBoatAvailability && !cbBoatAvailability.length">
+        <p>No se encuentran capacidades disponibles para el viaje seleccionado</p>
+      </div>
+
+      <app-availability-card
+        *ngFor="let item1 of cbBoatAvailability"
+        [item]="item1"
+      ></app-availability-card>
+
+      <h3 *ngIf="cbBoatSuggestions && cbBoatSuggestions.length">Viajes Sugeridos:</h3>
+      <app-availability-card
+        *ngFor="let item1 of cbBoatSuggestions"
+        [item]="item1"
+      ></app-availability-card>
+
+    </div>
+  </div>
+</div>
