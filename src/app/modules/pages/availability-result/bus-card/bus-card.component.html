@@ -1,0 +1,45 @@
+
+<div class="travel-info">
+  <h3>{{data.route !== '' ? data.route : 'Origen - Destino'}}</h3>
+</div>
+
+<mat-dialog-content>
+  <div class="bus-card">
+    <app-bus #bus [id]="data.id" [origin]="data.origin" [dest]="data.destination" [travelType]="data.travelType"></app-bus>
+  </div>
+
+</mat-dialog-content>
+
+<div class="legend-container">
+  <mat-card>
+    <div class="row">
+      <span class="dot green-bg"></span>
+      <span class="legend-label">Disponible</span>
+    </div>
+    <div class="row">
+      <span class="dot blue-bg"></span>
+      <span class="legend-label">Seleccionado</span>
+    </div>
+    <div class="row">
+      <span class="dot gray-bg"></span>
+      <span class="legend-label">Ocupado</span>
+    </div>
+    <div class="row">
+      <span class="dot red-bg"></span>
+      <span class="legend-label">Vendido</span>
+    </div>
+  </mat-card>
+</div>
+
+
+
+<div class="form-buttons mat-dialog-actions">
+  <button class="booking-button"
+          mat-raised-button
+          (click)="onBooking()"
+          [disabled]="bus.busService.getSelected().getValue().size === 0"
+  >
+    Reservar
+  </button>
+  <button mat-raised-button [mat-dialog-close]="bus">Cancelar</button>
+</div>
