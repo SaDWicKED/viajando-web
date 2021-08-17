@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row rounded-sm shadow-sm m-1 p-1">
+    <mat-label class="informacion">
+      <mat-icon class="m-2">info</mat-icon>
+      <b>Escanee este código</b> con <b>Transfermovil</b></mat-label>
+  </div>
+  <div class="row justify-content-center">
+    <qrcode [qrdata]="getTMData()" [width]="220" [errorCorrectionLevel]="'M'"></qrcode>
+  </div>
+  <div class="row d-flex justify-content-center" >
+    <a class="informacion" [href]="getTMUrl()">
+      Abrir con Transfermóvil
+    </a>
+  </div>
+</div>

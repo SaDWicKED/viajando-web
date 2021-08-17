@@ -31,6 +31,10 @@ import { LoginRequestComponent } from './modules/ui/login-request/login-request.
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { ConfirmDialogComponent } from './modules/ui/confirm-dialog/confirm-dialog.component';
 import {FormsModule} from "@angular/forms";
+import { SpinnerOverlayComponent } from './modules/ui/spinner-overlay/spinner-overlay.component';
+import { SpinnerComponent } from './modules/ui/spinner/spinner.component';
+import { QrDialogComponent } from './modules/ui/qr-dialog/qr-dialog.component';
+import {QRCodeModule} from "angularx-qrcode";
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import {FormsModule} from "@angular/forms";
     LoaderComponent,
     SnackInfoComponent,
     LoginRequestComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SpinnerOverlayComponent,
+    SpinnerComponent,
+    QrDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -65,7 +72,8 @@ import {FormsModule} from "@angular/forms";
     BrowserAnimationsModule,
     MaterialModule,
     MatPasswordStrengthModule,
-    FormsModule
+    FormsModule,
+    QRCodeModule
   ],
   providers: [
     httpInterceptorProviders,
