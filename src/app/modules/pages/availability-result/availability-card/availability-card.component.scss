@@ -1,0 +1,133 @@
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0 5px 0;
+  color: white;
+  border-radius: 3px;
+
+  span {
+    margin-left: 10px;
+  }
+  mat-icon {
+    color: white;
+    margin-right: 10px;
+  }
+}
+
+.dep-title {
+  background-color: #fd9701;
+}
+
+.cb-title {
+  background-color: #fd5901;
+}
+
+.selected{
+  background-color: #4BB543;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 10px 0;
+
+  .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.transport-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  mat-icon {
+    font-size: 20px;
+  }
+
+  .seat-capacity {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .climate {
+    mat-icon {
+      color: #5d89af;
+    }
+  }
+}
+
+.price{
+  margin-left: 10px;
+  color: #fd9701;
+}
+
+.gray-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  background-color: #eeeeee;
+  border-radius: 25px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  button {
+    position: relative;
+    background: #dddddd;
+    border: none;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover {
+      background-color: #4BB543;
+    }
+
+    &:focus{
+      outline: 0;
+    }
+
+    &:after {
+      content: "";
+      background: rgba(255, 255, 255, 0.411);
+      display: block;
+      position: absolute;
+      padding-top: 300%;
+      padding-left: 350%;
+      margin-left: -20px !important;
+      margin-top: -120%;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    &:active:after {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+      transition: 0s
+    }
+
+    &:disabled{
+      opacity: 0.3;
+    }
+  }
+}

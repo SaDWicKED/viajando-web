@@ -1,0 +1,43 @@
+<mat-card>
+  <div class="title" [ngClass]="selected? 'selected': item!.travelType==='Ida'? 'dep-title' : 'cb-title'">
+    <span>{{transportation}} ({{item!.travelType}})</span>
+    <mat-icon *ngIf="(item!.travelType === 'Ida')">arrow_forward</mat-icon>
+    <mat-icon *ngIf="(item!.travelType === 'Regreso')">arrow_back</mat-icon>
+  </div>
+
+  <div class="content">
+    <span>{{item!.denomination}}</span>
+
+    <div>
+      <span>{{item!.date | date : 'shortTime'}} - {{item!.arrivalDate | date :'shortTime'}}</span>
+      <span class="price"><b>$ {{item!.price | number}}</b></span>
+    </div>
+
+    <div *ngIf="trainNumber">
+      <span>Tren <b>{{trainNumber!}}</b> - Coche <b>{{carNumber!}}</b></span>
+    </div>
+
+    <div class="row">
+      <div class="transport-info">
+        <div class="seat-capacity">
+          <span>{{item!.capacity}}</span>
+          <mat-icon>airline_seat_recline_extra</mat-icon>
+        </div>
+        <div class="climate" *ngIf="item!.clime">
+          <mat-icon>ac_unit</mat-icon>
+        </div>
+      </div>
+
+      <div class="gray-placeholder">{{item!.date | date: 'dd/M/yyyy'}}</div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button mat-button [disabled]="selected"
+            (click)="beforeChecking()"
+    >
+      {{selected? "Seleccionado" : "Reservar"}}
+    </button>
+  </div>
+
+</mat-card>
