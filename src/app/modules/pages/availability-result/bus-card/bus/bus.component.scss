@@ -1,0 +1,81 @@
+$small: 768px;
+
+app-bus-seat {
+  margin-left: -15px;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+
+  @media screen and (max-width: $small) {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.uneven-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+
+  @media screen and (max-width: $small) {
+    flex-direction: row;
+    justify-items: center;
+    align-content: center;
+    gap: 0;
+  }
+}
+
+.even-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: $small) {
+    flex-direction: row;
+  }
+}
+
+.middle-row {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: $small) {
+    flex-direction: row;
+  }
+}
+
+.space-between {
+  width: 50px;
+  height: 58px;
+
+  @media screen and (max-width: $small) {
+    width: 28px;
+    height: 38px;
+  }
+}
+
+.preloading-splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    color: #fd9701;
+    font-size: 80px;
+    height: 80px;
+    width: 80px;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+}

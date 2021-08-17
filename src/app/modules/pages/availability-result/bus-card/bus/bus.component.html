@@ -1,0 +1,42 @@
+<div class="container">
+
+  <!--primera fila-->
+  <div *ngFor="let row of seats!.slice(0,1)">
+    <div class="uneven-row" *ngIf="row.length !== 4">
+      <app-bus-seat *ngFor="let item of row" [seat]=item (check)="seatClicked($event)" [travelType]="travelType"></app-bus-seat>
+    </div>
+    <div class="even-row" *ngIf="row.length === 4">
+      <div class="middle-row" *ngFor="let item of row; let index=index">
+        <app-bus-seat  [seat]=item (check)="seatClicked($event)" [travelType]="travelType"></app-bus-seat>
+        <div class="space-between" *ngIf="(index+1)%2===0 && (index !== 3)">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+
+  <!--filas intermedias-->
+  <div class="even-row" *ngFor="let row of seats!.slice(1,seats!.length-1)">
+    <div class="middle-row" *ngFor="let item of row; let index=index">
+      <app-bus-seat  [seat]=item (check)="seatClicked($event)" [travelType]="travelType"></app-bus-seat>
+      <div class="space-between" *ngIf="(index+1)%2===0 && (index !== 3)">&nbsp;</div>
+    </div>
+  </div>
+
+  <!--ultima fila-->
+  <div *ngFor="let row of seats!.slice(seats!.length-1,seats!.length)">
+    <div class="uneven-row" *ngIf="row.length !== 4">
+      <app-bus-seat *ngFor="let item of row" [seat]=item (check)="seatClicked($event)" [travelType]="travelType"></app-bus-seat>
+    </div>
+    <div class="even-row" *ngIf="row.length === 4">
+      <div class="middle-row" *ngFor="let item of row; let index=index">
+        <app-bus-seat  [seat]=item (check)="seatClicked($event)" [travelType]="travelType"></app-bus-seat>
+        <div class="space-between" *ngIf="(index+1)%2===0 && (index !== 3)">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="preloading-splash" *ngIf="seats!.length === 0">
+  <mat-icon>directions_bus</mat-icon>
+  <p>Cargando su viaje</p>
+</div>
