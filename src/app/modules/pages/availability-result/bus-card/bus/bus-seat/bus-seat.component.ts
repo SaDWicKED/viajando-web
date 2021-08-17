@@ -2,7 +2,6 @@ import {Component, Input, OnInit, Output, EventEmitter, OnDestroy} from '@angula
 import {BusSeat} from "../../../../../shared/models/bus-seat";
 import {Subscription} from "rxjs";
 import {BusService} from "../../../bus.service";
-import {BookingService} from "../../../../../shared/services/booking.service";
 import {MatDialog} from "@angular/material/dialog";
 import {NavigationStatusService} from "../../../../../shared/services/navigation-status.service";
 import {ConfirmDialogComponent} from "../../../../../ui/confirm-dialog/confirm-dialog.component";
@@ -22,7 +21,6 @@ export class BusSeatComponent implements OnInit, OnDestroy {
   selectedSubscription: Subscription | undefined;
 
   constructor(private busService: BusService,
-              private bookingService: BookingService,
               private dialog: MatDialog,
               private navigationStatusService: NavigationStatusService) { }
 
@@ -39,7 +37,7 @@ export class BusSeatComponent implements OnInit, OnDestroy {
   onClick(): void {
     const noDepSeats = this.navigationStatusService.numberOfSeatsSelectedDep; // number of departure seats selected
     const noCbSeats = this.navigationStatusService.numberOfSeatsSelectedCb; // number of comeback seats selected
-    const numberOfTicketsLeft = this.bookingService.getNumberOfTicketsLeft(); // number of tickets left
+    const numberOfTicketsLeft = this.navigationStatusService.ticketsLeft; // number of tickets left
 
     if (this.seat!.seatState === 0 && this.numSelected! < 4) {
       if (noDepSeats + noCbSeats === numberOfTicketsLeft) {
