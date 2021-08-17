@@ -10,7 +10,7 @@ export interface Order {
   msg?: string;
   name?: string;
   state?: number;
-  tikets?: Array<Ticket>;
+  tickets?: Array<Ticket>;
   tmId?: string;
   userId?: string;
 }
