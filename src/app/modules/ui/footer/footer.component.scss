@@ -1,18 +1,9 @@
 $small: 768px;
 $medium: 992px;
 
-.timer {
-  background-color: #474747;
-  color: white;
-  padding: 0 20px 0 20px;
-  font-size: 25px;
-
-  @media screen and (max-width: $small) {
-    font-size: 20px;
-  }
-}
-
 .container {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -22,7 +13,19 @@ $medium: 992px;
     flex-direction: row;
     align-items: center;
     align-self: flex-end;
-    margin: 0 2% 1% 0;
+    margin: auto 2% 1% auto;
+
+    .timer {
+      background-color: #474747;
+      color: white;
+      padding: 5px 20px 5px 20px;
+      font-size: 25px;
+      border-radius: 15px;
+
+      @media screen and (max-width: $small) {
+        font-size: 20px;
+      }
+    }
   }
 
   .footer-container {
@@ -49,7 +52,7 @@ $medium: 992px;
           display: none;
         }
 
-        .movil {
+        .mobile {
           width: 80px;
           height: 159px;
           align-self: flex-end;
@@ -85,7 +88,7 @@ $medium: 992px;
 
       a {
         align-self: center;
-        .apklis {
+        .apklis-logo {
           width: 150px;
           height: 48px;
           margin: 10px 0 0 15px;

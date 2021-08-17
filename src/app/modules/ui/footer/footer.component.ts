@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TimerService} from "../../shared/services/timer.service";
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  isVisible = true;
-  constructor() { }
+
+  isVisible: boolean;
+  isTimerOn: boolean | undefined;
+  timeLeft: string | undefined;
+
+
+  constructor(private timerService: TimerService) {
+    this.isVisible = true;
+    this.timeLeft = '10 : 00';
+  }
 
   ngOnInit(): void {
+    this.timerService.isTimerOn.subscribe((isOn) => {
+      this.isTimerOn = isOn;
+
+      if (!isOn) {
+        this.timeLeft = '10 : 00';
+      }
+
+    });
+    this.timerService.timeLeftsubject.subscribe((timeLeft) => {
+      this.timeLeft = timeLeft;
+    });
   }
+
 
 }
