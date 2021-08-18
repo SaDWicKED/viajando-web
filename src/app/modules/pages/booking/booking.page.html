@@ -1,1 +1,54 @@
-<p>booking works!</p>
+<div class="container">
+
+  <div class="ticket-card mat-elevation-z3">
+    <mat-tab-group mat-stretch-tabs>
+
+      <mat-tab label="Ida">
+        <form [formGroup]="depForm!">
+          <div class="travel-desc">
+            <span>{{depTransportation}}</span>
+            <span>{{depRoute}}</span>
+            <span>{{departureDate}}</span>
+          </div>
+          <div class="tickets" *ngFor="let item of depTickets.controls; let i = index">
+            <app-ticket-form [seat]="depSeats![i]" [depForm]="castToFormGroup(item)"
+                             [cbForm]="castToFormGroup(cbTickets.controls[i])"></app-ticket-form>
+          </div>
+        </form>
+      </mat-tab>
+
+      <mat-tab label="Regreso" *ngIf="cbSeats?.length !== 0">
+        <form [formGroup]="cbForm!">
+          <div class="travel-desc">
+            <span>{{cbTransportation}}</span>
+            <span>{{cbRoute}}</span>
+            <span>{{comebackDate}}</span>
+          </div>
+          <div class="tickets" *ngFor="let item of cbTickets.controls; let i = index">
+            <app-ticket-form [seat]="cbSeats![i]" [depForm]="castToFormGroup(item)"></app-ticket-form>
+          </div>
+        </form>
+      </mat-tab>
+
+    </mat-tab-group>
+
+    <div class="buttons">
+      <button
+        class="confirm-btn"
+        mat-raised-button
+        [disabled]="depForm!.invalid || cbForm!.invalid"
+        (click)="onConfirmBooking()"
+      >
+        Reservar
+      </button>
+      <button
+        class="cancel-btn"
+        mat-raised-button
+        (click)="onCancel()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+</div>

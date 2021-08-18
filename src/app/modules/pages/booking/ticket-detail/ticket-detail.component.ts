@@ -71,7 +71,6 @@ export class TicketDetailComponent implements OnInit {
     if (this.data.comebackPassengers.length) {
       for (let i = 0 ; i < this.data.departurePassengers.length; i++) {
         const indexCb = this.data.comebackPassengers.findIndex(pass => this.data.departurePassengers[i].dni === pass.dni);
-        console.log(indexCb);
         if (indexCb !== -1) { // si el pasajero tiene ticket de ida y de vuelta
           clients.push({
             name: this.data.departurePassengers[i].name,
