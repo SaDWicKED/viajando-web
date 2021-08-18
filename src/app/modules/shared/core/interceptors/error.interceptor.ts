@@ -7,10 +7,10 @@ import {
 } from '@angular/common/http';
 import {EMPTY, Observable, throwError} from 'rxjs';
 import {catchError, switchMap, tap} from 'rxjs/operators';
-import {SnackInfoService} from "../../shared/services/snack-info.service";
+import {SnackInfoService} from "../../services/snack-info.service";
 import {Injectable} from "@angular/core";
 import {flatMap} from "rxjs/internal/operators";
-import {AuthService} from "../../shared/services/auth.service";
+import {AuthService} from "../../services/auth.service";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {

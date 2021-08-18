@@ -4,7 +4,7 @@ import {Subscription} from "rxjs";
 import {BusService} from "../../../bus.service";
 import {MatDialog} from "@angular/material/dialog";
 import {NavigationStatusService} from "../../../../../shared/services/navigation-status.service";
-import {ConfirmDialogComponent} from "../../../../../ui/confirm-dialog/confirm-dialog.component";
+import {ConfirmDialogComponent} from "../../../../../shared/ui/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-bus-seat',

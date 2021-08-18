@@ -2,13 +2,13 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DatePipe} from '@angular/common';
 import {BusCardComponent} from '../bus-card/bus-card.component';
-import {LoginRequestComponent} from '../../../ui/login-request/login-request.component';
+import {LoginRequestComponent} from '../../../shared/ui/login-request/login-request.component';
 
 import {ResService} from '../../../api/booking/services/res.service';
 import {Availability} from "../../../api/availability/models/availability";
 import {TimerService} from "../../../shared/services/timer.service";
 import {NavigationStatusService} from "../../../shared/services/navigation-status.service";
-import {ConfirmDialogComponent} from "../../../ui/confirm-dialog/confirm-dialog.component";
+import {ConfirmDialogComponent} from "../../../shared/ui/confirm-dialog/confirm-dialog.component";
 import {BusComponent} from "../bus-card/bus/bus.component";
 
 export interface BusInfo {

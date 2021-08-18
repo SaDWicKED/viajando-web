@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 import {SecurityService} from "../../api/auth/services/security.service";
 import {Router} from "@angular/router";
 

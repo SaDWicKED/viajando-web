@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 import {Agency} from "../../api/availability/models/agency";
 import {RedirectionService} from "../../shared/services/redirection.service";
 import {DispService} from "../../api/availability/services/disp.service";

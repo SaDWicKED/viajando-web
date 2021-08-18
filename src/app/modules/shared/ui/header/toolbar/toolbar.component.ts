@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../shared/services/auth.service";
-import {SidenavService} from "../../../shared/services/sidenav.service";
+import {AuthService} from "../../../services/auth.service";
+import {SidenavService} from "../../../services/sidenav.service";
 
 @Component({
   selector: 'app-toolbar',

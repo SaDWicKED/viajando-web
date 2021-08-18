@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Traveler} from "../../shared/models/traveler";
 import {User} from "../../api/auth/models/user";
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 
 @Component({
   selector: 'app-travelers',

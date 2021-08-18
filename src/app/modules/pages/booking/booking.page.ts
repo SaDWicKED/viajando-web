@@ -2,20 +2,20 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BusSeat} from "../../shared/models/bus-seat";
 import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AddClient} from "../../api/booking/models/add-client";
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 import {NavigationStatusService} from "../../shared/services/navigation-status.service";
 import {CustomValidators} from "../../shared/tools/custom-validators";
 import {TimerService} from "../../shared/services/timer.service";
 import {SpinnerOverlayService} from "../../shared/services/spinner-overlay.service";
 import {Client} from "../../api/booking/models/client";
 import {BookingService} from "../../shared/services/booking.service";
-import {ConfirmDialogComponent} from "../../ui/confirm-dialog/confirm-dialog.component";
+import {ConfirmDialogComponent} from "../../shared/ui/confirm-dialog/confirm-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {TicketDetailComponent} from "./ticket-detail/ticket-detail.component";
 import {User} from "../../api/auth/models/user";
 import {Observable, Subscription} from "rxjs";
 import {Router} from "@angular/router";
-import {CanComponenDeactivate} from "../../core/guards/can-deactivate-guard.service";
+import {CanComponenDeactivate} from "../../shared/core/guards/can-deactivate-guard.service";
 
 @Component({
   selector: 'app-booking',

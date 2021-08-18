@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 
 @Component({
   selector: 'app-not-found',

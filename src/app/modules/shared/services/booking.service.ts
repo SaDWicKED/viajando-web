@@ -10,8 +10,8 @@ import {PaymentService} from "../../api/payment/services/payment.service";
 import {Order} from "../../api/payment/models/order";
 import {MatDialog} from "@angular/material/dialog";
 import {Qrdata} from "../models/qrdata";
-import {QrDialogComponent} from "../../ui/qr-dialog/qr-dialog.component";
-import {ConfirmDialogComponent} from "../../ui/confirm-dialog/confirm-dialog.component";
+import {QrDialogComponent} from "../ui/qr-dialog/qr-dialog.component";
+import {ConfirmDialogComponent} from "../ui/confirm-dialog/confirm-dialog.component";
 import {Router} from "@angular/router";
 
 @Injectable({

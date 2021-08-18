@@ -7,7 +7,7 @@ import jwt_decode from 'jwt-decode';
 import {map} from "rxjs/operators";
 import {Traveler} from "../models/traveler";
 import {Router} from "@angular/router";
-import {ConfirmDialogComponent} from "../../ui/confirm-dialog/confirm-dialog.component";
+import {ConfirmDialogComponent} from "../ui/confirm-dialog/confirm-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
 @Injectable({

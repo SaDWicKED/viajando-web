@@ -1,7 +1,7 @@
 import {AfterContentChecked, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatPasswordStrengthComponent} from '@angular-material-extensions/password-strength';
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 import {CustomValidators} from "../../shared/tools/custom-validators";
 import {MatSelectChange} from "@angular/material/select";
 import places from './localities.json';

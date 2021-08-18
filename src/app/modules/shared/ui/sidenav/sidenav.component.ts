@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {SidenavService} from "../../shared/services/sidenav.service";
+import {SidenavService} from "../../services/sidenav.service";
 
 @Component({
   selector: 'app-sidenav',

@@ -1,7 +1,7 @@
 import {Component, OnDestroy} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {SidenavService} from "../../shared/services/sidenav.service";
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 import {PolicyComponent} from "./policy/policy.component";
 import {RedirectionService} from "../../shared/services/redirection.service";
 

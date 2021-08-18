@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {BusSeat} from "../../../shared/models/bus-seat";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {ConfirmDialogComponent} from "../../../ui/confirm-dialog/confirm-dialog.component";
+import {ConfirmDialogComponent} from "../../../shared/ui/confirm-dialog/confirm-dialog.component";
 import {CustomValidators} from "../../../shared/tools/custom-validators";
 
 export interface Passenger {

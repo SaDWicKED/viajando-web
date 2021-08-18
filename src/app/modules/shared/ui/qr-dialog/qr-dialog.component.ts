@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {Qrdata} from "../../shared/models/qrdata";
+import {Qrdata} from "../../models/qrdata";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({

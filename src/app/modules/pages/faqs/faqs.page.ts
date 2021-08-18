@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FaqsService} from "../../api/faqs/services/faqs.service";
-import {HeaderService} from "../../ui/header/header.service";
+import {HeaderService} from "../../shared/ui/header/header.service";
 import {Faq} from "../../api/faqs/models/faq";
 import {RedirectionService} from "../../shared/services/redirection.service";
 

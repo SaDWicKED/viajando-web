@@ -4,7 +4,7 @@ import {BusService} from "../../bus.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {TimerService} from "../../../../shared/services/timer.service";
-import {ConfirmDialogComponent} from "../../../../ui/confirm-dialog/confirm-dialog.component";
+import {ConfirmDialogComponent} from "../../../../shared/ui/confirm-dialog/confirm-dialog.component";
 import {User} from "../../../../api/auth/models/user";
 
 @Component({
