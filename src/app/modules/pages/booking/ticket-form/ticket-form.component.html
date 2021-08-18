@@ -1,0 +1,53 @@
+<div class="ticket-form">
+  <div class="header">
+    <span>Asiento {{seat!.seatNumber!}}</span>
+    <button class="menu-btn"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            matTooltip="Usar datos de mis viajeros"
+            aria-label="Usar datos de mis viajeros">
+      <mat-icon>person</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button class="menu-item"
+              mat-menu-item
+              *ngFor="let traveler of savedTravelers"
+              (click)="fillForm(traveler)"
+      >
+        {{traveler.fullName}}
+      </button>
+    </mat-menu>
+  </div>
+
+  <form [formGroup]="depForm!" >
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre y Apellidos</mat-label>
+      <input matInput type="text"
+             maxlength="50"
+             formControlName="fullName"
+             [matAutocomplete]="travelerAutoComplete"/>
+      <mat-autocomplete
+        #travelerAutoComplete="matAutocomplete"
+      >
+        <mat-option
+          *ngFor="let traveler of filteredTravelers"
+          [value]="traveler.fullName"
+          (click)="onClick(traveler)"
+        >
+          <span>{{ traveler.fullName }}</span>
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="depForm!.get('fullName')!.hasError('nameIsInvalid')">
+        Debe insertar un nombre válido
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field  appearance="outline">
+      <mat-label>Número de Identidad</mat-label>
+      <input  matInput maxlength="11" type="text" formControlName="ci"/>
+      <mat-error *ngIf="depForm!.get('ci')!.hasError('idIsInvalid')">
+        Debe insertar un número de carnet válido
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
