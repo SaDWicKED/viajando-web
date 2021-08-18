@@ -38,9 +38,6 @@ export class NavigationStatusService {
   private depBus: BusComponent | undefined;
   private cbBus: BusComponent | undefined;
 
-  private departureSeats: Set<BusSeat> | undefined;
-  private comebackSeats: Set<BusSeat> | undefined;
-
   depSelectedSubject: Subject<BusComponent> = new Subject<BusComponent>();
   cbSelectedSubject: Subject<BusComponent> = new Subject<BusComponent>();
 
@@ -95,23 +92,15 @@ export class NavigationStatusService {
     this.toBookingFromAvailabilityResult = newStatus;
   }
 
-  setDepSeats(departureSeats: Set<BusSeat>): void {
-    this.departureSeats = departureSeats;
-  }
-
-  setCbSeats(comebackSeats: Set<BusSeat>): void {
-    this.comebackSeats = comebackSeats;
-  }
-
   getDepSeats(): Set<BusSeat> | undefined {
-    return this.departureSeats;
+    return this.depBus?.busService.getSelected().value;
   }
 
   getCbSeats(): Set<BusSeat> | undefined {
-    return this.comebackSeats;
+    return this.cbBus?.busService.getSelected().value;
   }
 
-  printStatus() {
+  printStatus(): void {
     console.log('origin code:', this.originCode);
     console.log('destination code:',this.destinationCode);
     console.log('departure code:',this.departureDate);
@@ -124,6 +113,5 @@ export class NavigationStatusService {
     console.log('departure bus:',this.depBus);
     console.log('comeback bus:',this.cbBus);
     console.log('toBookingFromAvailabilityResult:',this.toBookingFromAvailabilityResult);
-
   }
 }
