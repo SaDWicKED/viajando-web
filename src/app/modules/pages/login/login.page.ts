@@ -31,8 +31,7 @@ export class LoginPage {
     this.authService.login(
       this.loginForm.get('emailCtrl')?.value.replace('@', '.'),
       this.loginForm.get('passwordCtrl')?.value).subscribe(
-        user => {
-          console.log(user);
+      () => {
           this.router.navigate([this.redirectionService.getReturnURL()])
         });
   }

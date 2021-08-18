@@ -87,6 +87,8 @@ export class AvailabilityResultPage implements OnInit, OnDestroy {
     this.navigationStatusService.destinationCode = this.destination;
     this.navigationStatusService.departureDate = this.depDate;
     this.navigationStatusService.comebackDate = this.cbDate;
+    this.navigationStatusService.deleteDepBus();
+    this.navigationStatusService.deleteCbBus();
 
     this.depSelectedSubscription = this.navigationStatusService.depSelectedSubject.subscribe(() => {
       if (this.travelType === 'ida') {
@@ -135,15 +137,8 @@ export class AvailabilityResultPage implements OnInit, OnDestroy {
 
     if (!booked && this.timerService.isTimerRunning()) {
       this.timerService.stopTimer();
-      if (depBus) {
-        depBus.clearSeats();
-        this.navigationStatusService.deleteDepBus();
-      }
-
-      if (cbBus) {
-        cbBus.clearSeats();
-        this.navigationStatusService.deleteCbBus();
-      }
+      depBus?.clearSeats();
+      cbBus?.clearSeats();
     }
   }
 
@@ -232,7 +227,6 @@ export class AvailabilityResultPage implements OnInit, OnDestroy {
 
   private goToBooking(): void {
     this.navigationStatusService.setToBookingFromAvailabilityResult(true);
-    this.navigationStatusService.printStatus();
     this.router.navigate(['/booking']);
   }
 

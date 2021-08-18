@@ -63,8 +63,8 @@ export class BookingService {
   }
 
   unsubscribeWs() {
-    this.wsSubs!.unsubscribe();
-    this.socket!.disconnect();
+    this.wsSubs?.unsubscribe();
+    this.socket?.disconnect();
     this.socket = undefined;
     this.orderSubject = new  BehaviorSubject<any>(null);
   }

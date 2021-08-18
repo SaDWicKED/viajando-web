@@ -314,7 +314,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
             width: '500px',
             data: {
               title: 'Error de conexión',
-              content: 'Se ha interrumpido la comunicación con el servidor. Desea reintentarlo?',
+              content: 'Se ha interrumpido la comunicación con el servidor. ¿Desea reintentarlo?',
               cancelText: 'cancelar',
               acceptText: 'reintentar',
             }
@@ -450,7 +450,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
           width: '500px',
           data: {
             title: 'Error de conexión',
-            content: 'Se ha interrumpido la comunicación con el servidor. Desea reintentarlo?',
+            content: 'Se ha interrumpido la comunicación con el servidor. ¿Desea reintentarlo?',
             cancelText: 'cancelar',
             acceptText: 'reintentar',
           }
@@ -498,9 +498,10 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
           return false;
         }
       });
-    } else {
-      return true;
+    } else if (!this.booked && !currentUser){
+      this.cancelBooking();
     }
+    return true;
   }
 
   ////////////////////////////////////

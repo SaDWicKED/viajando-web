@@ -9,9 +9,13 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class LoginRequestComponent implements OnInit {
 
-  constructor(private router: Router,  public dialogRef: MatDialogRef<LoginRequestComponent>) { }
+  constructor(private router: Router,
+              private dialogRef: MatDialogRef<LoginRequestComponent>) {
+    this.dialogRef.disableClose = true;
+  }
 
   onNoClick(): void {
+    this.router.navigate(['/']);
     this.dialogRef.close();
   }
 

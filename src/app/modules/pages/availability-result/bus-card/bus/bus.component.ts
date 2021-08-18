@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {TimerService} from "../../../../shared/services/timer.service";
 import {ConfirmDialogComponent} from "../../../../ui/confirm-dialog/confirm-dialog.component";
+import {User} from "../../../../api/auth/models/user";
 
 @Component({
   selector: 'app-bus',
@@ -21,12 +22,17 @@ export class BusComponent implements OnInit, OnDestroy {
 
   seats: BusSeat[][] | undefined;
 
+  // usuario logueado cuando se crea el bus
+  private currentUser: User;
+
   private numberOfClicks: number | undefined;
 
   constructor(public busService: BusService,
               private router: Router,
               private dialog: MatDialog,
-              private timerService: TimerService,) { }
+              private timerService: TimerService,) {
+    this.currentUser = JSON.parse(sessionStorage.getItem('currentUser')!);
+  }
 
   ngOnInit(): void {
     this.numberOfClicks = 0;
@@ -46,8 +52,7 @@ export class BusComponent implements OnInit, OnDestroy {
   // deselecciona todos los asientos
   clearSeats(): void {
     console.log('seats cleared!!');
-    const currentUser = JSON.parse(sessionStorage.getItem('currentUser')!);
-    this.busService.unlockAll(currentUser.id).subscribe(() => {});
+    this.busService.unlockAll(this.currentUser.id!).subscribe(() => {});
   }
 
   seatClicked($event: [BusSeat, string]): void {

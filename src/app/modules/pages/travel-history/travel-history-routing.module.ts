@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {TravelHistoryPage} from "./travel-history.page";
+import {AuthGuardService} from "../../core/guards/auth-guard.service";
 
 const routes: Routes = [
   {
     path: '',
-    component: TravelHistoryPage
+    component: TravelHistoryPage,
+    canActivate: [AuthGuardService]
   },
 ];
 
