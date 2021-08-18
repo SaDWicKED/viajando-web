@@ -6,6 +6,9 @@ import {SecurityService} from "../../api/auth/services/security.service";
 import jwt_decode from 'jwt-decode';
 import {map} from "rxjs/operators";
 import {Traveler} from "../models/traveler";
+import {Router} from "@angular/router";
+import {ConfirmDialogComponent} from "../../ui/confirm-dialog/confirm-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +19,9 @@ export class AuthService {
   public currentUser: Observable<User> | undefined;
 
   constructor(private httpClient: HttpClient,
-              private securityService: SecurityService,) {
+              private securityService: SecurityService,
+              private router: Router,
+              private dialog: MatDialog) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')!));
   }
 
@@ -62,11 +67,27 @@ export class AuthService {
   }
 
   logout(): void {
-    // remove user from session storage to log user out
-    sessionStorage.removeItem('currentUser');
-    sessionStorage.removeItem('user_id');
-    sessionStorage.removeItem('token');
-    this.currentUserSubject.next({});
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      disableClose: true,
+      width: '500px',
+      data: {
+        title: 'Cerrar Sesión',
+        content: '¿Está seguro de que desea cerrar su sesión?',
+        cancelText: 'no',
+        acceptText: 'si',
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // remove user from session storage to log user out
+        sessionStorage.removeItem('currentUser');
+        sessionStorage.removeItem('user_id');
+        sessionStorage.removeItem('token');
+        this.router.navigate(['login'])
+        this.currentUserSubject.next({});
+      }
+    });
+
   }
 
   refreshToken(token: string): Observable<any> {
