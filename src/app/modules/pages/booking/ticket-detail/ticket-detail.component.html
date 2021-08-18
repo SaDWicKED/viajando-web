@@ -1,0 +1,59 @@
+<mat-dialog-content class="container" >
+  <div class="header-info">
+    <h1>Resúmen</h1>
+  </div>
+
+  <mat-card class="travel-info">
+    <div class="travel-info-title">
+      <span class="title">Viaje de Ida</span>
+      <span>{{data.departureRoute}}</span>
+    </div>
+
+    <div class="row"><span><b>Fecha:</b></span><span>{{data.departureDate | date: 'dd/MM/yyyy, h:mm a'}}</span></div>
+    <div class="row"><span><b>Precio:</b></span><span>${{data.departurePrice}} por persona</span></div>
+    <div class="row"><span></span><span>${{data.departurePrice / 2}} (menor de edad)</span></div>
+
+  </mat-card>
+
+  <mat-card class="travel-info" *ngIf="data.comebackPassengers.length">
+    <div class="travel-info-title">
+      <span class="title">Viaje de Regreso</span>
+      <span>{{data.comebackRoute}}</span>
+    </div>
+    <div class="row"><span><b>Fecha:</b></span><span>{{data.comebackDate | date: 'dd/MM/yyyy, h:mm a'}}</span></div>
+    <div class="row"><span><b>Precio:</b></span><span>${{data.comebackPrice}} por persona</span></div>
+    <div class="row"><span></span><span>${{data.comebackPrice / 2}} (menor de edad)</span></div>
+
+  </mat-card>
+
+  <mat-card class="ticket-info" *ngFor="let passenger of passengers; let i = index">
+    <div class="header">
+      <div class="title">
+        <mat-icon>person</mat-icon>
+        <span>Pasajero #{{i+1}}</span>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="block-1">
+        <div class="row"><span><b>Nombre:</b></span><span>{{passenger.name}}</span></div>
+        <div class="row"><span><b>No.Identificación:</b></span><span>{{passenger.dni}}</span></div>
+      </div>
+
+      <span class="seat-title">Asientos</span>
+
+      <div class="block-2">
+        <div class="row"><span><b>Ida:</b>&nbsp;</span><span>{{passenger.depSeat}}</span></div>
+        <div class="row" *ngIf="passenger.comSeat"><span><b>Regreso:</b>&nbsp;</span><span>{{passenger.comSeat}}</span></div>
+      </div>
+    </div>
+  </mat-card>
+
+</mat-dialog-content>
+
+<button
+  mat-raised-button
+  (click)="dialogRef.close(true)"
+>
+  Pagar: ${{calculateTicketPrice()}}
+</button>

@@ -1,0 +1,102 @@
+$small: 768px;
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  @include flex-column;
+  align-items: center;
+  overflow-x: hidden;
+
+  .header-info {
+    text-align: center;
+  }
+
+  mat-card {
+    @include flex-column;
+    margin: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .travel-info {
+    .travel-info-title {
+      @include flex-column;
+      align-self: center;
+      text-align: center;
+      margin-bottom: 15px;
+
+      span {
+        font-weight: bold;
+      }
+
+      .title {
+        font-size: 18px;
+      }
+    }
+
+  }
+
+  .ticket-info {
+    .header{
+      background-color: #fd9701;
+      .title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        mat-icon{
+          color: white;
+          margin: 5px;
+        }
+        span {
+          margin-left: 5px;
+          font-size: 17px;
+          color: white;
+        }
+      }
+    }
+
+    .seat-title {
+      align-self: center;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .body{
+      @include flex-column;
+      justify-content: space-between;
+      margin-top: 10px;
+
+      .block-1 {
+        @include flex-column;
+        margin-bottom: 10px;
+      }
+
+      .block-2{
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  @media screen and (max-width: $small) {
+    font-size: 12px;
+  }
+}
+
+button {
+  width: 100%;
+  background-color: #fd9701;
+  margin-top: 15px;
+}
