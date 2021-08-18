@@ -36,7 +36,7 @@ export class TimerService {
   }
 
   stopTimer() {
-    this.subscription!.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 
   getTimeLeft() {
