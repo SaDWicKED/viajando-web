@@ -2,7 +2,6 @@ import {FormControl} from "@angular/forms";
 
 export class CustomValidators {
 
-
   static invalidName = (control: FormControl): { [key: string]: boolean } | null => {
     const nameReg = /^([a-zñáéíóúA-ZÁÉÍÓÚ.]+[\s]*)+$/g;
     if (!control.value.match(nameReg)) {
@@ -30,7 +29,7 @@ export class CustomValidators {
     return null;
   }
 
-  static getAgeByDNI(dni: string, date?: string) {
+  static getAgeByDNI(dni: string, date?: string): number {
     const centuryChar = dni.charAt(6);
     const century = (centuryChar === '9') ? 1800 : (0 <= +centuryChar && +centuryChar <= 5) ? 1900 : 2000;
     const year = (century + (+dni.substr(0, 2))).toString();

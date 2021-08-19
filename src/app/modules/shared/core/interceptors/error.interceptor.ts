@@ -55,10 +55,6 @@ export class ErrorInterceptor implements HttpInterceptor {
             if (error.status === 400) {
               errorMessage = 'Error. El codigo de activación no es correcto';
             }
-          } else if (error.url?.includes('setPassword')) {
-            if (error.status === 400) {
-              errorMessage = 'Error. El codigo de activación no es correcto';
-            }
           } else if (error.url?.includes('seatMaps')) {
             if (error.status === 500) {
               errorMessage = 'Tiene una factura pendiente o ha alcanzado el máximo de operaciones diarias';
@@ -81,7 +77,8 @@ export class ErrorInterceptor implements HttpInterceptor {
       )
   }
 
-  refreshEverything() {
+  // refresca todos los tokens
+  private refreshEverything(): Observable<any> {
     const refreshToken = JSON.parse(sessionStorage.getItem('user_id')!).refreshToken;
     return this.authService.refreshToken(refreshToken).pipe(
       flatMap(tokenData => {
