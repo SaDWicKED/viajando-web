@@ -1,8 +1,7 @@
-import {AfterViewInit, Component, ElementRef, Inject, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {Agency} from "../../../api/availability/models/agency";
-import * as mapboxgl from 'mapbox-gl';
-import { environment } from "../../../../../environments/environment";
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-agency-detail',
@@ -11,38 +10,64 @@ import { environment } from "../../../../../environments/environment";
 })
 export class AgencyDetailComponent implements AfterViewInit {
 
-  @ViewChild('map', {static: false}) mapElement: ElementRef | undefined;
-  map: mapboxgl.Map | undefined;
   lat: number;
   lng: number;
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Agency) {
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Agency) {
     this.lat = +this.data.coordinates!.split(',')[0];
     this.lng = +this.data.coordinates!.split(',')[1];
-
   }
 
   ngAfterViewInit(): void {
-    if (this.data.coordinates !== '') {
-      // @ts-ignore
-      Object.getOwnPropertyDescriptor(mapboxgl, `accessToken`)
-        .set(environment.mapbox.accessToken);
-      this.map = new mapboxgl.Map({
-        container: this.mapElement!.nativeElement,
-        style: 'mapbox://styles/mapbox/streets-v11',
-        zoom: 15,
-        center: [this.lng, this.lat],
-
-      });
-      // Add map controls
-      this.map.addControl(new mapboxgl.NavigationControl());
-
-      const marker = new mapboxgl.Marker();
-      marker.setLngLat([this.lng, this.lat]);
-      marker.addTo(this.map);
+    if (this.lng) {
+      this.initMap();
     }
   }
 
+  // inicializa el mapa
+  private initMap(): void {
+    // info sobre el marcador
+    const iconRetinaUrl = '../../../assets/marker-icon-2x.png';
+    const iconUrl = '../../../assets/marker-icon.png';
+    const shadowUrl = '../../../assets/marker-shadow.png';
+    const iconDefault = L.icon({
+      iconRetinaUrl,
+      iconUrl,
+      shadowUrl,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      tooltipAnchor: [16, -28],
+      shadowSize: [41, 41]
+    });
+    L.Marker.prototype.options.icon = iconDefault;
+
+    // posicion de la agencia
+    const agencyPosition = {lat: this.lat, lng: this.lng};
+
+    // crear el mapa
+    const map = L.map('map', {
+      center: agencyPosition,
+      zoom: 16
+    });
+
+    // plantilla del mapa
+    const OpenStreetMap_DE = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      minZoom: 12,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+
+    // añadir marcador
+    L.marker([this.lat, this.lng], {
+      icon: iconDefault
+    }).bindPopup(`<b>${this.data.name}</b>`).addTo(map);
+
+    // centrar el mapa a la posicion de la agencia cuando se mueve el mapa
+    map.on("moveend", function () {
+      map.flyTo(agencyPosition);
+    })
+
+    OpenStreetMap_DE.addTo(map);
+  }
 }

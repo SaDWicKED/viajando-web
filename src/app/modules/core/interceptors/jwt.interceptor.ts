@@ -29,7 +29,7 @@ export class JwtInterceptor implements HttpInterceptor {
       } else {
         request = request.clone({
           setHeaders: {
-            apikey: `${environment.disponibilidad.apiKey}`
+            apikey: `${environment.availability.apiKey}`
           }
         });
       }

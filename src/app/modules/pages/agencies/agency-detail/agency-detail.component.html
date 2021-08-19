@@ -8,10 +8,8 @@
     <span><b>Teléfono: </b> {{data.phone}}</span>
   </div>
 
-  <div class="map-div"
+  <div class="map-div" id="map"
        *ngIf="(data.coordinates !== '')"
-       #map
-       style='width: 300px; height: 300px;'
   ></div>
 
 </div>

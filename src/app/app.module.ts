@@ -21,6 +21,7 @@ import { SpinnerOverlayComponent } from './modules/shared/ui/spinner-overlay/spi
 import { SpinnerComponent } from './modules/shared/ui/spinner/spinner.component';
 import { QrDialogComponent } from './modules/shared/ui/qr-dialog/qr-dialog.component';
 import {QRCodeModule} from "angularx-qrcode";
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {QRCodeModule} from "angularx-qrcode";
   ],
   providers: [
     httpInterceptorProviders,
+    DatePipe
   ],
   entryComponents: [
     SnackInfoComponent,
