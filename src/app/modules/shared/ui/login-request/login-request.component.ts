@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {MatDialogRef} from "@angular/material/dialog";
 
@@ -7,7 +7,7 @@ import {MatDialogRef} from "@angular/material/dialog";
   templateUrl: './login-request.component.html',
   styleUrls: ['./login-request.component.scss']
 })
-export class LoginRequestComponent implements OnInit {
+export class LoginRequestComponent {
 
   constructor(private router: Router,
               private dialogRef: MatDialogRef<LoginRequestComponent>) {
@@ -29,7 +29,5 @@ export class LoginRequestComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  ngOnInit(): void {
-  }
 
 }
