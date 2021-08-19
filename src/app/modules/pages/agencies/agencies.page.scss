@@ -10,7 +10,7 @@ $medium: 992px;
 
   @media screen and (max-width: $small) {
     margin-top: -160px;
-    width: 80%;
+    width: 85%;
   }
 
   @media screen and (min-width: $small) and (max-width: $medium) {
@@ -39,7 +39,6 @@ mat-panel-title {
 
   .agency-name {
     display: flex;
-    flex-direction: row;
     align-items: center;
 
     mat-icon {
@@ -65,6 +64,5 @@ mat-panel-title {
 
 .title {
   display: flex;
-  flex-direction: row;
   align-content: center;
 }

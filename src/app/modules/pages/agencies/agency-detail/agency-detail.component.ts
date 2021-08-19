@@ -24,7 +24,7 @@ export class AgencyDetailComponent implements AfterViewInit {
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (this.data.coordinates !== '') {
       // @ts-ignore
       Object.getOwnPropertyDescriptor(mapboxgl, `accessToken`)

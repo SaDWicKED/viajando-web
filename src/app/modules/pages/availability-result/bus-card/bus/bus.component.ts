@@ -1,6 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {BusSeat} from "../../../../shared/models/bus-seat";
-import {BusService} from "../../bus.service";
+import {BusService} from "./bus.service";
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {TimerService} from "../../../../shared/services/timer.service";

@@ -1,12 +1,12 @@
 <div class="container">
   <h2>¿Dónde encontrarnos?</h2>
+
   <mat-accordion *ngIf="agencies.length > 0" >
     <mat-expansion-panel *ngFor="let province of provinces">
       <mat-expansion-panel-header>
         <mat-panel-title>
           <span><b>{{province}}</b></span>
           <span>Agencias({{provinces.length}})</span>
-
         </mat-panel-title>
       </mat-expansion-panel-header>
 
@@ -19,9 +19,7 @@
           <span >{{agency.name}} </span>
         </div>
       </div>
-
     </mat-expansion-panel>
-
   </mat-accordion>
 
 </div>

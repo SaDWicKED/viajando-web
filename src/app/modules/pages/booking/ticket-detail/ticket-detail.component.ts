@@ -64,7 +64,7 @@ export class TicketDetailComponent implements OnInit {
   }
 
   // retorna un listado con todos los pasajeros y sus repectivos asientos
-  allPassengers(): ExtendedClient[] {
+  private allPassengers(): ExtendedClient[] {
     const clients: ExtendedClient[] = [];
 
     // si el viaje es ida y vuelta

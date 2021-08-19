@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {CustomValidators} from "../../shared/tools/custom-validators";
 import {User} from "../../api/auth/models/user";
@@ -17,7 +17,7 @@ import {RedirectionService} from "../../shared/services/redirection.service";
   templateUrl: './user-profile.page.html',
   styleUrls: ['./user-profile.page.scss']
 })
-export class UserProfilePage implements OnInit{
+export class UserProfilePage{
 
   locations: any;
   provinces: any;
@@ -52,16 +52,7 @@ export class UserProfilePage implements OnInit{
     });
   }
 
-  ngOnInit(): void {
-
-  }
-
-  // convenience getter for easy access to form fields
-  get f(): {[p: string]: AbstractControl} {
-    return this.profileForm.controls;
-  }
-
-  onSubmit() {
+  onSubmit(): void {
     this.loading = true;
     const user: User = {
       userName: this.f.email.value.replace('@', '.'),
@@ -103,10 +94,13 @@ export class UserProfilePage implements OnInit{
     this.f.municipalityCtrl.setValue(undefined);
   }
 
-  getMunicipalitiesByProvince(province: string): string[] {
+  private getMunicipalitiesByProvince(province: string): string[] {
     return this.locations[`${province}`];
   }
 
-
+  // convenience getter for easy access to form fields
+  get f(): {[p: string]: AbstractControl} {
+    return this.profileForm.controls;
+  }
 
 }

@@ -10,7 +10,7 @@ $large: 1200px;
 
   @media screen and (max-width: $small) {
     margin-top: -150px;
-    width: 80%;
+    width: 85%;
   }
 
   @media screen and (min-width: $small) and (max-width: $medium) {
@@ -31,7 +31,6 @@ mat-expansion-panel {
 
 .title {
   display: flex;
-  flex-direction: row;
   align-content: center;
 }
 

@@ -1,7 +1,6 @@
 
 .title {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -37,14 +36,12 @@
 
   .row{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
   }
 }
 
 .transport-info {
   display: flex;
-  flex-direction: row;
   align-items: center;
 
   mat-icon {
@@ -80,7 +77,6 @@
 
 .button-container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 
   button {

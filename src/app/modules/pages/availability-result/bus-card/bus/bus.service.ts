@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {BusSeat} from "../../shared/models/bus-seat";
+import {BusSeat} from "../../../../shared/models/bus-seat";
 import {BehaviorSubject, Observable, Subscription} from "rxjs";
 import {io, Socket} from "socket.io-client";
-import {ResService} from "../../api/booking/services/res.service";
+import {ResService} from "../../../../api/booking/services/res.service";
 import {map} from "rxjs/operators";
-import {BlockSeat} from "../../api/booking/models/block-seat";
-import {UnBlockSeat} from "../../api/booking/models/un-block-seat";
-import {Seat} from "../../api/booking/models/seat";
+import {BlockSeat} from "../../../../api/booking/models/block-seat";
+import {UnBlockSeat} from "../../../../api/booking/models/un-block-seat";
+import {Seat} from "../../../../api/booking/models/seat";
 
 @Injectable()
 export class BusService {

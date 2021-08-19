@@ -47,7 +47,7 @@ export class TravelersPage implements OnInit, OnDestroy {
     this.travelers = JSON.parse(localStorage.getItem('viajeros' + this.currentUser!.id)!);
   }
 
-  removeInvalidTravelers() {
+  private removeInvalidTravelers(): void {
     const nameReg = /^([a-zñáéíóúA-ZÁÉÍÓÚ.]+[\s]*)+$/g;
     const idReg = /^[0-9]{11}$/g;
     this.travelers = this.travelers!.filter(traveler => traveler.fullName.match(nameReg)

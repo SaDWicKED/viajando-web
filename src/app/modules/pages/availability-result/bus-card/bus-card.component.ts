@@ -3,7 +3,7 @@ import {BusComponent} from "./bus/bus.component";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {NavigationStatusService} from "../../../shared/services/navigation-status.service";
 import {BusInfo} from "../availability-card/availability-card.component";
-import {BusService} from "../bus.service";
+import {BusService} from "./bus/bus.service";
 
 @Component({
   selector: 'app-bus-card',

@@ -16,13 +16,11 @@ mat-card {
 
 mat-card-content {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 
 .container {
-  display: flex;;
-  flex-direction: row;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;

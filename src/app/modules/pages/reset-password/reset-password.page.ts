@@ -30,7 +30,7 @@ export class ResetPasswordPage implements OnInit {
 
   get f() {return this.recoverPasswordForm!.controls; }
 
-  onSubmit() {
+  onSubmit(): void {
     this.authService.sendPasswordUpdate(this.f.activationcodeCtrl.value.trim(), this.f.passwordCtrl.value).subscribe(
       () => {
         this.router.navigate(['login']);
@@ -38,7 +38,7 @@ export class ResetPasswordPage implements OnInit {
     );
   }
 
-  requestCode() {
+  requestCode(): void {
     this.authService.requestPasswordChange(this.usernameForm!.value.replace('@', '.')).subscribe(
       () => {
         this.codeRequested = true;

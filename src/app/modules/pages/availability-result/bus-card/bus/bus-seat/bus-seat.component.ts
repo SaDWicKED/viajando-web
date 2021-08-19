@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter, OnDestroy} from '@angular/core';
 import {BusSeat} from "../../../../../shared/models/bus-seat";
 import {Subscription} from "rxjs";
-import {BusService} from "../../../bus.service";
+import {BusService} from "../bus.service";
 import {MatDialog} from "@angular/material/dialog";
 import {NavigationStatusService} from "../../../../../shared/services/navigation-status.service";
 import {ConfirmDialogComponent} from "../../../../../shared/ui/confirm-dialog/confirm-dialog.component";

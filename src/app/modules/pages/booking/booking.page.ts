@@ -171,6 +171,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
     // crear clientes
     this.bookingService.createClients(this.depClients).subscribe(
       resultDep => {
+        console.log(resultDep);
         this.createdDepClients = resultDep;
         if (this.cbSeats!.length !== 0) {
           for (const ticket of this.cbForm!.value.tickets) {
@@ -241,6 +242,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
                 this.navigationStatusService.depTravel?.travelId!,
                 this.navigationStatusService.cbTravel?.travelId!).subscribe(
                 resp => {
+                  console.log(resp);
                   this.checkPaymentWS(resp.id!);
                 },
                 error => {
