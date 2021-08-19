@@ -19,7 +19,7 @@ import { TravelersModule } from './modules/pages/travelers/travelers.module';
 import { UserProfileModule } from './modules/pages/user-profile/user-profile.module';
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { httpInterceptorProviders } from "./modules/shared/core/interceptors";
+import { httpInterceptorProviders } from "./modules/core/interceptors";
 import { ToolbarComponent } from './modules/shared/ui/header/toolbar/toolbar.component';
 import {MaterialModule} from "./modules/material/material.module";
 import { HeaderComponent } from './modules/shared/ui/header/header.component';

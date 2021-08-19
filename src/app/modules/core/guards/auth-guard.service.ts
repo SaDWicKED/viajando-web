@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AuthService} from "../../services/auth.service";
+import {AuthService} from "../../shared/services/auth.service";
 import {MatDialog} from "@angular/material/dialog";
-import {LoginRequestComponent} from "../../ui/login-request/login-request.component";
+import {LoginRequestComponent} from "../../shared/ui/login-request/login-request.component";
 
 @Injectable({
   providedIn: 'root'

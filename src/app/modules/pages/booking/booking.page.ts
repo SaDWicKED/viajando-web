@@ -15,7 +15,7 @@ import {TicketDetailComponent} from "./ticket-detail/ticket-detail.component";
 import {User} from "../../api/auth/models/user";
 import {Observable, Subscription} from "rxjs";
 import {Router} from "@angular/router";
-import {CanComponenDeactivate} from "../../shared/core/guards/can-deactivate-guard.service";
+import {CanComponenDeactivate} from "../../core/guards/can-deactivate-guard.service";
 
 @Component({
   selector: 'app-booking',
