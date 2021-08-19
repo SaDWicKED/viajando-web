@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit {
       }
 
     });
-    this.timerService.timeLeftsubject.subscribe((timeLeft) => {
+    this.timerService.timeLeftSubject.subscribe((timeLeft) => {
       this.timeLeft = timeLeft;
     });
   }

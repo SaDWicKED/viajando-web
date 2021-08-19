@@ -25,10 +25,12 @@ export class AuthService {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')!));
   }
 
+  // devuelve verdadero si el usuario esta autenticado
   isAuthenticated(): boolean {
     return sessionStorage.getItem('currentUser') != null;
   }
 
+  // realiza el login de un usuario
   login(userName: string, password: string): Observable<User> {
     return this.securityService.login(
       {body: {password, userName}}
@@ -66,6 +68,7 @@ export class AuthService {
     ));
   }
 
+  // desloguear al usuario
   logout(confirmation?: boolean): void {
     if (confirmation) {
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -90,6 +93,7 @@ export class AuthService {
     }
   }
 
+  // elimina la informacion del usuario
   private deleteUserData(): void {
     sessionStorage.removeItem('currentUser');
     sessionStorage.removeItem('user_id');
@@ -98,10 +102,12 @@ export class AuthService {
     this.currentUserSubject.next({});
   }
 
+  // refresca el token AM
   refreshToken(token: string): Observable<any> {
     return this.securityService.refreshToken({token});
   }
 
+  // ontiene el token IS
   getToken(): Observable<any> {
     const user = JSON.parse(sessionStorage.getItem('user_id')!);
     const params = new HttpParams()
@@ -118,11 +124,13 @@ export class AuthService {
     return this.httpClient.post<any>('https://gateway.viajando.transnet.cu/token', params, httpOptions );
   }
 
-  sendPasswordUpdate(code: string, password: string) {
+  // cambiar la contraseña del usuario
+  sendPasswordUpdate(code: string, password: string): Observable<void> {
     return this.securityService.setPassword({body: {code, password}});
   }
 
-  requestPasswordChange(userName: string) {
+  //  solicita el codigo para cambiar la contraseña
+  requestPasswordChange(userName: string): Observable<void> {
     return this.securityService.recoverPassword({userName});
   }
 }

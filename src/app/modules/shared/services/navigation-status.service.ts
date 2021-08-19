@@ -45,6 +45,10 @@ export class NavigationStatusService {
 
   constructor() { }
 
+  ///////////////////////////
+  //  getters and setters  //
+  ///////////////////////////
+
   getDepBus(): BusComponent | undefined {
     return this.depBus;
   }
@@ -77,10 +81,11 @@ export class NavigationStatusService {
   removeDepSeat(): void {
     this.numberOfSeatsSelectedDep -= 1;
   }
-  addCbSeat() {
+
+  addCbSeat(): void {
     this.numberOfSeatsSelectedCb += 1;
   }
-  removeCbSeat() {
+  removeCbSeat(): void {
     this.numberOfSeatsSelectedCb -= 1;
   }
 

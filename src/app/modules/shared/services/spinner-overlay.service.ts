@@ -11,7 +11,7 @@ export class SpinnerOverlayService {
 
   constructor(private overlay: Overlay) {}
 
-  public show(message = ''): void {
+  show(message = ''): void {
     // Returns an OverlayRef (which is a PortalHost)
 
     if (!this.overlayRef) {
@@ -24,7 +24,7 @@ export class SpinnerOverlayService {
     component.instance.message = message;
   }
 
-  public hide(): void {
+  hide(): void {
     if (!!this.overlayRef) {
       this.overlayRef.detach();
     }

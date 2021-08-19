@@ -11,6 +11,7 @@ export class AvailabilityService {
 
   constructor( private dispService: DispService) { }
 
+  // solicita la disponibilidad al server
   getAvailability(
     travelType: string,
     travelMode: string,

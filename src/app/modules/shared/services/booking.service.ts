@@ -127,6 +127,7 @@ export class BookingService {
       }});
   }
 
+  // obtiene la orden de pago dado su id
   getPaymentOrder(id: string): Observable<Order> {
     return this.paymentService.ordersGet({id});
   }

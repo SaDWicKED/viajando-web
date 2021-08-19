@@ -11,7 +11,7 @@ export class TimerService {
   private timeLeft = 600; // in seconds
   private subscription: Subscription | undefined;
   isTimerOn = new Subject<boolean>();
-  timeLeftsubject = new Subject<string>();
+  timeLeftSubject = new Subject<string>();
 
   constructor() {
   }
@@ -25,7 +25,7 @@ export class TimerService {
         this.timerStarted = false;
         this.isTimerOn.next(this.timerStarted);
       })).subscribe(() => {
-      this.timeLeftsubject.next(TimerService.timeFormat(this.timeLeft));
+      this.timeLeftSubject.next(TimerService.timeFormat(this.timeLeft));
       if (this.timeLeft === 0) {
         this.stopTimer();
         alert('Su tiempo para reservar se ha agotado');
@@ -35,15 +35,15 @@ export class TimerService {
     });
   }
 
-  stopTimer() {
+  stopTimer(): void {
     this.subscription?.unsubscribe();
   }
 
-  getTimeLeft() {
+  getTimeLeft(): number {
     return this.timeLeft;
   }
 
-  setTimeLeft(time: number) {
+  setTimeLeft(time: number): void {
     this.timeLeft = time;
   }
 
@@ -57,7 +57,7 @@ export class TimerService {
     );
   }
 
-  isTimerRunning() {
+  isTimerRunning(): boolean {
     return this.timerStarted;
   }
 }
