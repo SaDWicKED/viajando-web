@@ -1,0 +1,38 @@
+<mat-dialog-content class="container" >
+  <div class="header-info">
+    <h1>Boletines</h1>
+    <span>{{data[0].route}}</span>
+    <span>Tramo: ({{data[0].section}})</span>
+    <hr>
+  </div>
+
+  <mat-card class="travel-ticket-list" *ngFor="let travel of data" (click)="onClick(travel)">
+    <div class="header">
+      <div class="title">
+        <mat-icon *ngIf="travel.transport!.toLowerCase().includes('omnibus')">directions_bus</mat-icon>
+        <mat-icon *ngIf="travel.transport!.toLowerCase().includes('ferro')">train</mat-icon>
+        <mat-icon *ngIf="travel.transport!.toLowerCase().includes('cat')">directions_boat</mat-icon>
+        <span>{{travel.clientName}}</span>
+      </div>
+      <div class="price">
+        <span>${{travel.price}}</span>
+      </div>
+    </div>
+
+    <div class="body">
+      <div class="left">
+        <span>CI: {{travel.clientDni}}</span>
+        <span>Boletín: {{travel.serialNumber}}</span>
+        <span>Medio: {{travel.transport!.includes('Omnibus')? 'Ómnibus' : (travel.transport!.includes('Ferro')? 'Tren' : 'Catamarán')}}</span>
+        <span>Fecha: {{datePipe.transform(travel.outputDate, 'dd/MM/yyyy, h:mm a')}}</span>
+        <span>Vendido: {{datePipe.transform(travel.saleDate, 'dd/MM/yyyy, h:mm a')}}</span>
+        <span class="seat">Asiento: {{travel.seat}}&nbsp;</span>
+      </div>
+      <div class="right">
+        <span>{{travel.seat}}&nbsp;</span>
+        <mat-icon>airline_seat_recline_normal</mat-icon>
+      </div>
+    </div>
+  </mat-card>
+
+</mat-dialog-content>
