@@ -1,6 +1,7 @@
 {
   "name": "viajando-web",
-  "version": "0.0.0",
+  "version": "0.9.29",
+  "author": "Silvio Alexis Sol Fong",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
