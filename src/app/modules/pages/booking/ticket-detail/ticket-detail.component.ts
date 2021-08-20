@@ -3,6 +3,7 @@ import {BusSeat} from "../../../shared/models/bus-seat";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ConfirmDialogComponent} from "../../../shared/ui/confirm-dialog/confirm-dialog.component";
 import {CustomValidators} from "../../../shared/tools/custom-validators";
+import {DatePipe} from "@angular/common";
 
 export interface Passenger {
   name: string;
@@ -39,6 +40,7 @@ export class TicketDetailComponent implements OnInit {
   passengers: ExtendedClient[] | undefined;
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
+              public datePipe: DatePipe,
               @Inject(MAT_DIALOG_DATA) public data: TicketData) { }
 
   ngOnInit(): void {

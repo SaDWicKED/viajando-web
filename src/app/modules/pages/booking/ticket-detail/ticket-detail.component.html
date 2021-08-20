@@ -9,7 +9,7 @@
       <span>{{data.departureRoute}}</span>
     </div>
 
-    <div class="row"><span><b>Fecha:</b></span><span>{{data.departureDate | date: 'dd/MM/yyyy, h:mm a'}}</span></div>
+    <div class="row"><span><b>Fecha:</b></span><span>{{datePipe.transform(data.departureDate, 'dd/MM/yyyy, h:mm a')}}</span></div>
     <div class="row"><span><b>Precio:</b></span><span>${{data.departurePrice}} por persona</span></div>
     <div class="row"><span></span><span>${{data.departurePrice / 2}} (menor de edad)</span></div>
 
@@ -20,7 +20,7 @@
       <span class="title">Viaje de Regreso</span>
       <span>{{data.comebackRoute}}</span>
     </div>
-    <div class="row"><span><b>Fecha:</b></span><span>{{data.comebackDate | date: 'dd/MM/yyyy, h:mm a'}}</span></div>
+    <div class="row"><span><b>Fecha:</b></span><span>{{datePipe.transform(data.comebackDate, 'dd/MM/yyyy, h:mm a')}}</span></div>
     <div class="row"><span><b>Precio:</b></span><span>${{data.comebackPrice}} por persona</span></div>
     <div class="row"><span></span><span>${{data.comebackPrice / 2}} (menor de edad)</span></div>
 
