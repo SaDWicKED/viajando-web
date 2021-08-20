@@ -28,7 +28,7 @@ export class ActivateAccountPage {
 
   onSubmit(): void {
     this.securityService.active(
-      {code: this.activateForm.controls.activationcodeCtrl.value}).subscribe(() => {
+      {code: this.activateForm.controls.activationCodeCtrl.value}).subscribe(() => {
       this.router.navigate([this.returnUrl]);
     });
   }

@@ -68,7 +68,7 @@ export class RegisterPage implements AfterContentChecked {
     };
 
     this.securityService.insertUser({body: user}).subscribe(() => {
-      this.router.navigate(['login']);
+      this.router.navigate(['activate-account']);
     });
   }
 
