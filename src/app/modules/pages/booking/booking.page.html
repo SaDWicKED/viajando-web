@@ -36,7 +36,7 @@
       <button
         class="confirm-btn"
         mat-raised-button
-        [disabled]="depForm!.invalid || cbForm!.invalid"
+        [disabled]="depForm!.invalid || cbForm!.invalid || processingBooking"
         (click)="onConfirmBooking()"
       >
         Reservar

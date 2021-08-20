@@ -54,6 +54,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
 
   // flags
   booked = false;
+  processingBooking: boolean | undefined;
   processingPayment: boolean | undefined;
   private retryCount: number;
 
@@ -126,6 +127,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
   }
 
   onConfirmBooking(): void {
+    this.processingBooking = true;
     const accessToken = sessionStorage.getItem('token');
     if (!accessToken) {
       sessionStorage.setItem('token', 'empty');
@@ -183,8 +185,11 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
               this.booking();
             });
         } else {
+          this.processingBooking = false;
           this.booking();
         }
+      }, () => {
+        this.processingBooking = false;
       });
   }
 
