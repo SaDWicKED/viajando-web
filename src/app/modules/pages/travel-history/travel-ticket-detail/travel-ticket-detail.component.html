@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="header">
+    <mat-icon *ngIf="transportation!.includes('Ómnibus')">directions_bus</mat-icon>
+    <mat-icon *ngIf="transportation!.includes('Tren')">train</mat-icon>
+    <mat-icon *ngIf="transportation!.includes('Catamarán')">directions_boat</mat-icon>
+    <h3>{{data.clientName}}</h3>
+    <span>{{transportation}}</span>
+  </div>
+  <hr>
+  <div class="info">
+    <div class="row"><span><b>CI:</b></span><span>{{data.clientDni}}</span></div>
+    <div class="row"><span><b>No.Serie:</b></span><span>{{data.serialNumber}}</span></div>
+    <div class="row"><span><b>Ruta:</b></span><span>{{data.route}}</span></div>
+    <div class="row"><span><b>Tramo:</b></span><span>{{data.section}}</span></div>
+    <div class="row"><span><b>Fecha:</b></span><span>{{datePipe.transform(data.outputDate, 'dd/MM/yyyy, h:mm a')}}</span></div>
+    <div class="row"><span><b>Vendido:</b></span><span>{{datePipe.transform(data.saleDate, 'dd/MM/yyyy, h:mm a')}}</span></div>
+    <div class="row"><span><b>Precio:</b></span><span>$ {{data.price}}</span></div>
+    <div class="row"><span><b>Asiento:</b></span><span>{{data.seat}}</span></div>
+  </div>
+  <hr>
+    <button
+      *ngIf="data.state === 'Vendido'"
+      mat-raised-button
+      (click)="onRefund()"
+    >
+      SOLICITAR REINTEGRO
+    </button>
+</div>
