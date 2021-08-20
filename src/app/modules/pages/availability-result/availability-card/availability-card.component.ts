@@ -11,6 +11,8 @@ import {NavigationStatusService} from "../../../shared/services/navigation-statu
 import {ConfirmDialogComponent} from "../../../shared/ui/confirm-dialog/confirm-dialog.component";
 import {BusComponent} from "../bus-card/bus/bus.component";
 
+
+
 export interface BusInfo {
   travelType: string | undefined;
   id: string | undefined;
@@ -38,7 +40,7 @@ export class AvailabilityCardComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private resService: ResService,
-              private datePipe: DatePipe,
+              public datePipe: DatePipe,
               private timerService: TimerService,
               private navigationStatusService: NavigationStatusService) {
   }

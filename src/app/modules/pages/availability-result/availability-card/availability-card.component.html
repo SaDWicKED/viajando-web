@@ -9,8 +9,8 @@
     <span>{{item!.denomination}}</span>
 
     <div>
-      <span>{{item!.date | date : 'shortTime'}} - {{item!.arrivalDate | date :'shortTime'}}</span>
-      <span class="price"><b>$ {{item!.price | number}}</b></span>
+      <span>{{datePipe.transform(item!.date, 'h:mm a')}} - {{datePipe.transform(item!.arrivalDate, 'h:mm a')}}</span>
+      <span class="price"><b>$ {{item!.price}}</b></span>
     </div>
 
     <div *ngIf="trainNumber">
@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <div class="gray-placeholder">{{item!.date | date: 'dd/M/yyyy'}}</div>
+      <div class="gray-placeholder">{{datePipe.transform(item!.date, 'dd/M/yyyy')}}</div>
     </div>
   </div>
 
