@@ -1,0 +1,25 @@
+<mat-card class="travel-card" (click)="onClick()">
+  <div class="header">
+    <div class="title">
+      <mat-icon>rv_hookup</mat-icon>
+      <span>{{travel!.route}}</span>
+    </div>
+    <div class="price">
+      <span>${{totalPrice}}</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="left">
+      <span>Tramo: {{travel!.section}}</span>
+      <span>Factura: {{travel!.invoiceId}}</span>
+      <span>Fecha: {{datePipe.transform(travel!.outputDate, 'dd/MM/yyyy, h:mm a')}}</span>
+      <span>Vendido: {{datePipe.transform(travel!.saleDate, 'dd/MM/yyyy, h:mm a')}}</span>
+      <button class="rounded-pill" [ngClass]="state!.toLowerCase()">{{travel!.state!.toUpperCase()}}</button>
+    </div>
+    <div class="right">
+      <span>{{numberOfSeats}}&nbsp;</span>
+      <mat-icon>people</mat-icon>
+    </div>
+  </div>
+</mat-card>

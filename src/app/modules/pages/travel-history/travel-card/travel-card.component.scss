@@ -1,0 +1,109 @@
+$small: 768px;
+
+.travel-card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+
+
+  :hover {
+    cursor: pointer;
+  }
+
+  .header {
+    display: flex;
+    background-color: #fd9701;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      color: white;
+      margin: 5px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        color: white;
+        margin: 5px;
+
+        @media screen and (max-width: $small) {
+          display: none;
+        }
+      }
+      span {
+        margin-left: 5px;
+        color: white;
+      }
+    }
+
+  }
+
+  .body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: $small) {
+        font-size: 12px;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-content: center;
+
+      @media screen and (max-width: $small) {
+        font-size: 12px;
+      }
+
+      mat-icon {
+        font-size: 23px;
+
+        @media screen and (max-width: $small) {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+.rounded-pill {
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.vendido {
+  background-color: #9ae593;
+}
+
+.confirmado {
+  background-color: #4BB543;
+}
+
+.cancelado {
+  background-color: #ababab;
+}
+
+.peticion {
+  background-color: #ffffff;
+}
+
+.reintegrado {
+  background-color: #fd5152;
+}
+
