@@ -64,9 +64,9 @@ export class AgencyDetailComponent implements AfterViewInit {
     }).bindPopup(`<b>${this.data.name}</b>`).addTo(map);
 
     // centrar el mapa a la posicion de la agencia cuando se mueve el mapa
-    map.on("moveend", function () {
-      map.flyTo(agencyPosition);
-    })
+    map.on("zoom", function () {
+      return map.flyTo(agencyPosition);
+    });
 
     OpenStreetMap_DE.addTo(map);
   }
