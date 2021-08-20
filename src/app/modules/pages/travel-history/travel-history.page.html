@@ -1,1 +1,33 @@
-<p>travel-history works!</p>
+<div class="container">
+
+  <span class="no-result" *ngIf="!travelHistory"> No tiene viajes aún</span>
+
+  <div
+    class="tab-buttons"
+    *ngIf="travelHistory"
+  >
+    <button [ngClass]="selected === 'Realizadas'? 'selected' : 'no-selected'" (click)="onSelection('Realizadas')">
+      &nbsp;Realizadas
+    </button>
+    <button [ngClass]="selected === 'Próximas'? 'selected' : 'no-selected'" (click)="onSelection('Próximas')">
+      Próximas
+    </button>
+    <button [ngClass]="selected === 'Canceladas'? 'selected' : 'no-selected'" (click)="onSelection('Canceladas')">
+      Canceladas
+    </button>
+  </div>
+
+
+  <div class="travel-list">
+    <div class="no-cat-result" *ngIf="travelHistory && !filteredTravels!.length">
+      <span> No tiene viajes en esta categoría </span>
+    </div>
+
+    <app-travel-card *ngFor="let travels of groupedByBills"
+                      [travel]="travels[0]"
+                      [numberOfSeats]="travels.length"
+                      [tickets]="travels"
+    ></app-travel-card>
+  </div>
+
+</div>

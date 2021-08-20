@@ -1,0 +1,94 @@
+$small: 768px;
+$medium: 992px;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: -100px;
+  margin-bottom: 20vh;
+
+  @media screen and (max-width: $small) {
+    margin-top: -160px;
+  }
+
+  @media screen and (min-width: $small) and (max-width: $medium) {
+    margin-top: -130px;
+  }
+
+  .no-result{
+    color: white;
+    font-size: 30px;
+
+    @media screen and (max-width: $small) {
+      font-size: 18px;
+      white-space: nowrap;
+    }
+  }
+
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 15px;
+
+    @media screen and (max-width: $small) {
+      gap: 5px;
+    }
+
+    .selected {
+      color: #fd9701;
+    }
+
+    .no-selected {
+      color: #cfcfcf;
+    }
+
+    button {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      background: none;
+      outline: none;
+      border: none;
+      font-size: 22px;
+
+      @media screen and (max-width: $small) {
+        font-size: 16px;
+      }
+
+      mat-icon {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .travel-list {
+    max-width: 450px;
+    width: 100%;
+
+
+    @media screen and (max-width: $small) {
+      width: 85%;
+    }
+
+    .no-cat-result {
+      text-align: center;
+      margin-top: 25px;
+
+      span  {
+        color: white;
+        font-size: 20px;
+
+        @media screen and (max-width: $small) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
