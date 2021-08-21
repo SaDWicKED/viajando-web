@@ -574,7 +574,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
   // comprueba que no hallan menores de edad viajando solos
   private areThereMinorsAlone(): boolean {
     for (let i = 0 ; i < this.depSeats!.length; i++) {
-      if (CustomValidators.getAgeByDNI(this.depForm!.value.tickets[i].ci, this.departureDate) >= 16) {
+      if (CustomValidators.getAgeByDNI(this.depForm!.value.tickets[i].ci, this.departureDate?.replace(/-/g, "/")) >= 16) {
         return false;
       }
     }

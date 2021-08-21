@@ -48,7 +48,7 @@ export class TicketDetailComponent implements OnInit {
   calculateTicketPrice(): number {
     let price = 0;
     for (const passenger of this.passengers!) {
-      if (CustomValidators.getAgeByDNI(passenger.dni, this.data.departureDate) >= 16) {
+      if (CustomValidators.getAgeByDNI(passenger.dni, this.data.departureDate.replace(" ", "T")) >= 16) {
         price += this.data.departurePrice;
         if (passenger.comSeat) {
           price += this.data.comebackPrice;
