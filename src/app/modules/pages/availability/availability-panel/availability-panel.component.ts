@@ -77,9 +77,9 @@ export class AvailabilityPanelComponent implements OnInit {
       this.travelForm.get('comebackDateCtrl')?.enable();
 
       const dates = [];
-      dates.push(new Date(settings.endBusDate!).getTime())
-      dates.push(new Date(settings.endShipDate!).getTime());
-      dates.push(new Date(settings.endTrainDate!).getTime());
+      dates.push(new Date(settings.endBusDate!.replace(" ", "T")).getTime())
+      dates.push(new Date(settings.endShipDate!.replace(" ", "T")).getTime());
+      dates.push(new Date(settings.endTrainDate!.replace(" ", "T")).getTime());
 
       this.maxDate = new Date(Math.max(...dates));
     });

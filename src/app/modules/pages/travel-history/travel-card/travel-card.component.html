@@ -13,8 +13,8 @@
     <div class="left">
       <span>Tramo: {{travel!.section}}</span>
       <span>Factura: {{travel!.invoiceId}}</span>
-      <span>Fecha: {{datePipe.transform(travel!.outputDate, 'dd/MM/yyyy, h:mm a')}}</span>
-      <span>Vendido: {{datePipe.transform(travel!.saleDate, 'dd/MM/yyyy, h:mm a')}}</span>
+      <span>Fecha: {{travel!.outputDate!.replace(" ", "T") | date: 'dd/MM/yyyy, h:mm a'}}</span>
+      <span>Vendido: {{travel!.saleDate!.replace(" ", "T") | date: 'dd/MM/yyyy, h:mm a'}}</span>
       <button class="rounded-pill" [ngClass]="state!.toLowerCase()">{{travel!.state!.toUpperCase()}}</button>
     </div>
     <div class="right">

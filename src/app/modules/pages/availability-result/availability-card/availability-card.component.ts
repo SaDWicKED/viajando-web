@@ -56,7 +56,7 @@ export class AvailabilityCardComponent implements OnInit {
   }
 
   beforeChecking(): void {
-    const travelDate = this.datePipe.transform(this.item!.date, 'yyyy-MM-dd');
+    const travelDate = this.datePipe.transform(this.item!.date!.replace(" ", "T"), 'yyyy-MM-dd');
     const noSuggest = localStorage.getItem('noSuggestAlert');
     const text = 'Está a punto de seleccionar un viaje sugerido. La fecha del viaje sugerido es distinta a la deseada. ¿Desea continuar? ';
     if (

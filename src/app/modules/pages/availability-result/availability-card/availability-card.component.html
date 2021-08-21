@@ -9,7 +9,10 @@
     <span>{{item!.denomination}}</span>
 
     <div>
-      <span>{{datePipe.transform(item!.date, 'h:mm a')}} - {{datePipe.transform(item!.arrivalDate, 'h:mm a')}}</span>
+      <span>
+        {{item!.date!.replace(" ", "T") | date : 'shortTime'}} -
+        {{item!.arrivalDate!.replace(" ", "T") | date :'shortTime'}}
+      </span>
       <span class="price"><b>$ {{item!.price}}</b></span>
     </div>
 
@@ -28,7 +31,7 @@
         </div>
       </div>
 
-      <div class="gray-placeholder">{{datePipe.transform(item!.date, 'dd/M/yyyy')}}</div>
+      <div class="gray-placeholder">{{item!.date!.replace(" ", "T") | date: 'dd/M/yyyy'}}</div>
     </div>
   </div>
 

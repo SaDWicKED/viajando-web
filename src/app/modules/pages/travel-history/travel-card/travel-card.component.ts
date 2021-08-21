@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Travel} from "../../../api/booking/models/travel";
 import {MatDialog} from "@angular/material/dialog";
 import {TravelTicketListComponent} from "../travel-ticket-list/travel-ticket-list.component";
-import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-travel-card',
@@ -18,8 +17,7 @@ export class TravelCardComponent implements OnInit {
   totalPrice: number | undefined;
   state: string | undefined;
 
-  constructor(private dialog: MatDialog,
-              public datePipe: DatePipe) { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.state = this.travel?.state?.includes('Petición') ? 'peticion' : this.travel?.state;

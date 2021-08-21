@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Travel} from "../../../api/booking/models/travel";
-import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-travel-ticket-detail',
@@ -14,7 +13,6 @@ export class TravelTicketDetailComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<TravelTicketDetailComponent>,
-    public datePipe: DatePipe,
     @Inject(MAT_DIALOG_DATA) public data: Travel) {}
 
   ngOnInit(): void {

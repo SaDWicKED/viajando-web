@@ -180,19 +180,19 @@ export class AvailabilityResultPage implements OnInit, OnDestroy {
   // separada segun el tipo de viaje (ida, regreso, sugeridp de ida o sugerido de regreso)
   private filterAvailability(data: Availability[]) {
     const depAvailability = data.filter(
-      item => item.capacity !== null && (this.datePipe.transform(item.date, 'yyyy-MM-dd') === this.depDate ) &&
+      item => item.capacity !== null && (this.datePipe.transform(item.date!.replace(" ", "T"), 'yyyy-MM-dd') === this.depDate ) &&
         (item.travelType === 'Ida'));
 
     const cbAvailability = data.filter(
-      item => item.capacity !== null && (this.datePipe.transform(item.date, 'yyyy-MM-dd') === this.cbDate) &&
+      item => item.capacity !== null && (this.datePipe.transform(item.date!.replace(" ", "T"), 'yyyy-MM-dd') === this.cbDate) &&
         (item.travelType === 'Regreso'));
 
     const depSuggestions = data.filter(
-      item => item.capacity !== null && (this.datePipe.transform(item.date, 'yyyy-MM-dd') !== this.depDate &&
+      item => item.capacity !== null && (this.datePipe.transform(item.date!.replace(" ", "T"), 'yyyy-MM-dd') !== this.depDate &&
         (item.travelType === 'Ida')));
 
     const cbSuggestions = data.filter(
-      item => item.capacity !== null && (this.datePipe.transform(item.date, 'yyyy-MM-dd') !== this.cbDate &&
+      item => item.capacity !== null && (this.datePipe.transform(item.date!.replace(" ", "T"), 'yyyy-MM-dd') !== this.cbDate &&
         (item.travelType === 'Regreso')));
 
     return {depAvailability, cbAvailability, depSuggestions, cbSuggestions};

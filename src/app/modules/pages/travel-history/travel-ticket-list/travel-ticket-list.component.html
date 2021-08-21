@@ -24,8 +24,8 @@
         <span>CI: {{travel.clientDni}}</span>
         <span>Boletín: {{travel.serialNumber}}</span>
         <span>Medio: {{travel.transport!.includes('Omnibus')? 'Ómnibus' : (travel.transport!.includes('Ferro')? 'Tren' : 'Catamarán')}}</span>
-        <span>Fecha: {{datePipe.transform(travel.outputDate, 'dd/MM/yyyy, h:mm a')}}</span>
-        <span>Vendido: {{datePipe.transform(travel.saleDate, 'dd/MM/yyyy, h:mm a')}}</span>
+        <span>Fecha: {{travel.outputDate!.replace(" ", "T") | date: 'dd/MM/yyyy, h:mm a'}}</span>
+        <span>Vendido: {{travel.saleDate!.replace(" ", "T") | date: 'dd/MM/yyyy, h:mm a'}}</span>
         <span class="seat">Asiento: {{travel.seat}}&nbsp;</span>
       </div>
       <div class="right">

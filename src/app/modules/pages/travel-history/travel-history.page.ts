@@ -42,12 +42,12 @@ export class TravelHistoryPage implements OnInit {
   private filterData(filterValue: string): void {
     if (filterValue === 'Próximas') {
       this.filteredTravels = this.travelHistory!
-        .filter(travel => travel.state === 'Vendido' && new Date(travel.outputDate!).getTime() > new Date().getTime());
+        .filter(travel => travel.state === 'Vendido' && new Date(travel.outputDate!.replace(" ", "T")).getTime() > new Date().getTime());
       this.groupedByBills = this.groupByBill(this.filteredTravels, 'invoiceId');
     } else if (filterValue === 'Realizadas') {
       this.filteredTravels = this.travelHistory!
         .filter(travel => travel.state === 'Confirmado' ||
-          (travel.state === 'Vendido' && new Date(travel.outputDate!).getTime() <= new Date().getTime()));
+          (travel.state === 'Vendido' && new Date(travel.outputDate!.replace(" ", "T")).getTime() <= new Date().getTime()));
       this.groupedByBills = this.groupByBill(this.filteredTravels, 'invoiceId');
     } else if (filterValue === 'Canceladas') {
       this.filteredTravels = this.travelHistory!

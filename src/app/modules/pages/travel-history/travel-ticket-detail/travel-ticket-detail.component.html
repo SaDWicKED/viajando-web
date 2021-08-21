@@ -12,8 +12,8 @@
     <div class="row"><span><b>No.Serie:</b></span><span>{{data.serialNumber}}</span></div>
     <div class="row"><span><b>Ruta:</b></span><span>{{data.route}}</span></div>
     <div class="row"><span><b>Tramo:</b></span><span>{{data.section}}</span></div>
-    <div class="row"><span><b>Fecha:</b></span><span>{{datePipe.transform(data.outputDate, 'dd/MM/yyyy, h:mm a')}}</span></div>
-    <div class="row"><span><b>Vendido:</b></span><span>{{datePipe.transform(data.saleDate, 'dd/MM/yyyy, h:mm a')}}</span></div>
+    <div class="row"><span><b>Fecha:</b></span><span>{{data.outputDate!.replace(" ", "T") | date: 'dd/MM/yyyy, h:mm a'}}</span></div>
+    <div class="row"><span><b>Vendido:</b></span><span>{{data.saleDate!.replace(" ", "T") | date: 'dd/MM/yyyy, h:mm a'}}</span></div>
     <div class="row"><span><b>Precio:</b></span><span>$ {{data.price}}</span></div>
     <div class="row"><span><b>Asiento:</b></span><span>{{data.seat}}</span></div>
   </div>
