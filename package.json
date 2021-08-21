@@ -1,11 +1,11 @@
 {
   "name": "viajando-web",
-  "version": "0.9.30",
+  "version": "0.9.31",
   "author": "Silvio Alexis Sol Fong",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && gzipper c ./dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
