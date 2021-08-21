@@ -127,7 +127,6 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
   }
 
   onConfirmBooking(): void {
-    this.processingBooking = true;
     const accessToken = sessionStorage.getItem('token');
     if (!accessToken) {
       sessionStorage.setItem('token', 'empty');
@@ -160,6 +159,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
         }
       });
     } else {
+      this.processingBooking = true;
       this.confirmBooking();
     }
   }
