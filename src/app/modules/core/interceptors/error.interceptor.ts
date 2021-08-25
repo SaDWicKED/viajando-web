@@ -55,11 +55,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             if (error.status === 400) {
               errorMessage = 'Error. El codigo de activación no es correcto';
             }
-          } else if (error.url?.includes('seatMaps')) {
-            if (error.status === 500) {
-              errorMessage = 'Tiene una factura pendiente o ha alcanzado el máximo de operaciones diarias';
-            }
-          } else  if (error.url?.includes('orders')) {
+          } else if (error.url?.includes('orders')) {
             if (error.status === 0 && error.error instanceof ProgressEvent) {
               errorMessage = 'Error de conexión';
             } else {
