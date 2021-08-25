@@ -73,5 +73,9 @@
     </div>
   </div>
 
+  <div class="network-status" *ngIf="!isConnectionAvailable">
+    <mat-icon>wifi_off</mat-icon>
+    <span>NO HAY CONEXION A INTERNET</span>
+  </div>
 
 </div>
