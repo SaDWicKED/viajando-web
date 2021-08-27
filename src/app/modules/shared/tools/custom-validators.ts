@@ -37,7 +37,7 @@ export class CustomValidators {
     const day = +dni.substr(4, 2);
 
     const d1 = date? new Date(date).getTime() : Date.now();
-    const d2 = new Date(year + '-' + month + '-' + day).getTime();
+    const d2 = new Date(year + '/' + month + '/' + day).getTime();
     return Math.floor((d1 - d2) / 31536000000);
   }
 
