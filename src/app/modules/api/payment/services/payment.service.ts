@@ -12,6 +12,11 @@ import { map, filter } from 'rxjs/operators';
 import { Message } from '../models/message';
 import { Order } from '../models/order';
 import { PendingInvoice } from '../models/pending-invoice';
+import { RefundInvoice } from '../models/refund-invoice';
+import { RefundResponse } from '../models/refund-response';
+import { RefundTicket } from '../models/refund-ticket';
+import { RefundTickets } from '../models/refund-tickets';
+import { Refunds } from '../models/refunds';
 
 @Injectable({
   providedIn: 'root',
@@ -237,6 +242,168 @@ export class PaymentService extends BaseService {
 
     return this.pendingInvoices$Response(params).pipe(
       map((r: StrictHttpResponse<Array<PendingInvoice>>) => r.body as Array<PendingInvoice>)
+    );
+  }
+
+  /**
+   * Path part for operation requestRefundPayByTikets
+   */
+  static readonly RequestRefundPayByTiketsPath = '/requestRefundPayByTikets';
+
+  /**
+   * Retorna una lista con las solicitudes que se pudiero o no insertar para el reintegro de los boletines especificados.
+   *
+   * Retorna una lista con las solicitudes que se pudiero o no insertar para el reintegro de los boletines especificados
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `requestRefundPayByTikets()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  requestRefundPayByTikets$Response(params: {
+    body: RefundTickets
+  }): Observable<StrictHttpResponse<Array<Refunds>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PaymentService.RequestRefundPayByTiketsPath, 'post');
+    if (params) {
+      rb.body(params.body, 'application/json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<Refunds>>;
+      })
+    );
+  }
+
+  /**
+   * Retorna una lista con las solicitudes que se pudiero o no insertar para el reintegro de los boletines especificados.
+   *
+   * Retorna una lista con las solicitudes que se pudiero o no insertar para el reintegro de los boletines especificados
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `requestRefundPayByTikets$Response()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  requestRefundPayByTikets(params: {
+    body: RefundTickets
+  }): Observable<Array<Refunds>> {
+
+    return this.requestRefundPayByTikets$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<Refunds>>) => r.body as Array<Refunds>)
+    );
+  }
+
+  /**
+   * Path part for operation requestRefundPayByTiket
+   */
+  static readonly RequestRefundPayByTiketPath = '/requestRefundPayByTiket';
+
+  /**
+   * Retorna si se pudo o no insertar la solicitud para el reintegro.
+   *
+   * Retorna si se pudo o no insertar la solicitud de reintegro dado un boletin
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `requestRefundPayByTiket()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  requestRefundPayByTiket$Response(params: {
+    body: RefundTicket
+  }): Observable<StrictHttpResponse<RefundResponse>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PaymentService.RequestRefundPayByTiketPath, 'post');
+    if (params) {
+      rb.body(params.body, 'application/json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<RefundResponse>;
+      })
+    );
+  }
+
+  /**
+   * Retorna si se pudo o no insertar la solicitud para el reintegro.
+   *
+   * Retorna si se pudo o no insertar la solicitud de reintegro dado un boletin
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `requestRefundPayByTiket$Response()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  requestRefundPayByTiket(params: {
+    body: RefundTicket
+  }): Observable<RefundResponse> {
+
+    return this.requestRefundPayByTiket$Response(params).pipe(
+      map((r: StrictHttpResponse<RefundResponse>) => r.body as RefundResponse)
+    );
+  }
+
+  /**
+   * Path part for operation requestRefundPayByInvoice
+   */
+  static readonly RequestRefundPayByInvoicePath = '/requestRefundPayByInvoice';
+
+  /**
+   * Retorna si se pudo o no insertar la solicitud de reintegro.
+   *
+   * Retorna si se pudo o no insertar la solicitud de reintegro para la factura
+   *
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `requestRefundPayByInvoice()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  requestRefundPayByInvoice$Response(params: {
+    body: RefundInvoice
+  }): Observable<StrictHttpResponse<RefundResponse>> {
+
+    const rb = new RequestBuilder(this.rootUrl, PaymentService.RequestRefundPayByInvoicePath, 'post');
+    if (params) {
+      rb.body(params.body, 'application/json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: '*/*'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<RefundResponse>;
+      })
+    );
+  }
+
+  /**
+   * Retorna si se pudo o no insertar la solicitud de reintegro.
+   *
+   * Retorna si se pudo o no insertar la solicitud de reintegro para la factura
+   *
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `requestRefundPayByInvoice$Response()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  requestRefundPayByInvoice(params: {
+    body: RefundInvoice
+  }): Observable<RefundResponse> {
+
+    return this.requestRefundPayByInvoice$Response(params).pipe(
+      map((r: StrictHttpResponse<RefundResponse>) => r.body as RefundResponse)
     );
   }
 
