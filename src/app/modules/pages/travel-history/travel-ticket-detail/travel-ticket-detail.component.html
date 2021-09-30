@@ -18,11 +18,12 @@
     <div class="row"><span><b>Asiento:</b></span><span>{{data.seat}}</span></div>
   </div>
   <hr>
-    <button
-      *ngIf="data.state === 'Vendido'"
-      mat-raised-button
-      (click)="onRefund()"
-    >
-      SOLICITAR REINTEGRO
-    </button>
+  <button
+    *ngIf="data.state === 'Vendido'"
+    mat-raised-button
+    (click)="onRefund()"
+    [disabled]="waitingForRefund"
+  >
+    SOLICITAR REINTEGRO
+  </button>
 </div>

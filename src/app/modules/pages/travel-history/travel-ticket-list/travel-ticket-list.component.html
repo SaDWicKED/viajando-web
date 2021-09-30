@@ -3,8 +3,20 @@
     <h1>Boletines</h1>
     <span>{{data[0].route}}</span>
     <span>Tramo: ({{data[0].section}})</span>
+
+    <button
+      mat-button
+      *ngIf="data[0].state === 'Vendido'"
+      class="refund-button"
+      (click)="onRefund()"
+      [disabled]="waitingForRefund"
+    >
+      SOLICITAR REINTEGRO
+    </button>
+
     <hr>
   </div>
+
 
   <mat-card class="travel-ticket-list" *ngFor="let travel of data" (click)="onClick(travel)">
     <div class="header">
