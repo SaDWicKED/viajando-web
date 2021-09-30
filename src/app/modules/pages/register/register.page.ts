@@ -7,6 +7,8 @@ import {MatSelectChange} from "@angular/material/select";
 import places from './localities.json';
 import {SecurityService} from "../../api/auth/services/security.service";
 import {Router} from "@angular/router";
+import {ConfirmDialogComponent} from "../../shared/ui/confirm-dialog/confirm-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 
 @Component({
@@ -26,6 +28,7 @@ export class RegisterPage implements AfterContentChecked {
 
   constructor(private headerService: HeaderService,
               private securityService: SecurityService,
+              private dialog: MatDialog,
               private router: Router,
               private cdref: ChangeDetectorRef,) {
     this.headerService.setTitle('Viajando');
@@ -68,7 +71,21 @@ export class RegisterPage implements AfterContentChecked {
     };
 
     this.securityService.insertUser({body: user}).subscribe(() => {
-      this.router.navigate(['activate-account']);
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        disableClose: true,
+        width: '500px',
+        data: {
+          title: 'Cuenta creada',
+          content: 'Su cuenta se ha creado satisfactoriamente. Revise su correo para activarla ',
+          acceptText: 'ok',
+        }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.router.navigate(['login']);
+        }
+      });
+
     });
   }
 

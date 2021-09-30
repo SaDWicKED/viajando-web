@@ -32,11 +32,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/pages/register/register.module')
       .then(mod => mod.RegisterModule).catch(() => location.reload())
   },
-  {
-    path: 'activate-account',
-    loadChildren: () => import('./modules/pages/activate-account/activate-account.module')
-      .then(mod => mod.ActivateAccountModule).catch(() => location.reload())
-  },
+  // {
+  //   path: 'activate-account',
+  //   loadChildren: () => import('./modules/pages/activate-account/activate-account.module')
+  //     .then(mod => mod.ActivateAccountModule).catch(() => location.reload())
+  // },
   {
     path: 'reset-password',
     loadChildren: () => import('./modules/pages/reset-password/reset-password.module')
