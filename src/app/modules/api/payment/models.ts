@@ -1,4 +1,9 @@
 export { Order } from './models/order';
+export { RefundTicket } from './models/refund-ticket';
+export { RefundInvoice } from './models/refund-invoice';
+export { RefundTickets } from './models/refund-tickets';
+export { RefundResponse } from './models/refund-response';
+export { Refunds } from './models/refunds';
 export { Ticket } from './models/ticket';
 export { Error } from './models/error';
 export { Message } from './models/message';

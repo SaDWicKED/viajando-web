@@ -16,6 +16,14 @@ $small: 768px;
     z-index: 400;
     width: 100%;
     background: white;
+
+    button {
+      border: none;
+      outline: none;
+      margin-top: 10px;
+      width: 200px;
+      align-self: center;
+    }
   }
 
   .travel-ticket-list{
@@ -97,12 +105,5 @@ $small: 768px;
       }
     }
   }
-
-  button {
-    border: none;
-    outline: none;
-    margin-top: 10px;
-  }
-
 
 }

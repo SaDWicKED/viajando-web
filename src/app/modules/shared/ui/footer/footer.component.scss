@@ -112,6 +112,21 @@ $medium: 992px;
       }
     }
   }
+
+  .network-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF5733;
+    color: white;
+    gap: 5px;
+
+    span {
+      font-size: 17px;
+      margin: 5px;
+    }
+  }
+
 }
 
 .bg-facebook {

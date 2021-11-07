@@ -3,12 +3,11 @@
   class="container sticky-top"
   [class.sticky-top]="height !== 300"
   [style.height.px]=height>
-  <div>
-    <app-toolbar></app-toolbar>
 
-    <header class="header-title">
-      <h1 *ngIf="headerService.getHeight().getValue() === 300 ">{{title}}</h1>
-    </header>
-  </div>
+  <app-toolbar></app-toolbar>
+
+  <header class="header-title">
+    <h1 *ngIf="headerService.getHeight().getValue() === 300 ">{{title}}</h1>
+  </header>
 
 </div>

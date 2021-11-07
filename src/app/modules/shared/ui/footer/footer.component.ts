@@ -12,10 +12,19 @@ export class FooterComponent implements OnInit {
   isTimerOn: boolean | undefined;
   timeLeft: string | undefined;
 
+  isConnectionAvailable: boolean = navigator.onLine;
 
   constructor(private timerService: TimerService) {
     this.isVisible = true;
     this.timeLeft = '10 : 00';
+
+    window.addEventListener('online', () => {
+      location.reload();
+    });
+
+    window.addEventListener('offline', () => {
+      this.isConnectionAvailable = false
+    });
   }
 
   ngOnInit(): void {
