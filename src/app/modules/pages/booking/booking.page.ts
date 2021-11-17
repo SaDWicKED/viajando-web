@@ -283,7 +283,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
         if (order.state === 3) { // si tranfermovil acepto la orden
           this.booked = true;
           this.spinnerService.hide();
-          this.openQrDialog(order.id.toString(), order.amount.toString());
+          this.openQrDialog(order.extenalId!.toString(), order.amount.toString());
         } else if (order.state === 4) { // pago completado
           this.bookingService.unsubscribeWs();
           this.dialog.closeAll();
@@ -351,7 +351,7 @@ export class BookingPage implements OnInit, OnDestroy, CanComponenDeactivate {
       if (order.state === 3) { // si tranfermovil acepto la orden
         this.booked = true;
         this.spinnerService.hide();
-        this.openQrDialog(order.id!.toString(), order.amount!.toString());
+        this.openQrDialog(order.externalId!.toString(), order.amount!.toString());
       } else if (order.state === 4) { // pago completado
         this.bookingService.unsubscribeWs();
         this.dialog.closeAll();
